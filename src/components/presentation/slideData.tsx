@@ -1782,14 +1782,140 @@ export const ContactSlide = () => (
   </div>
 );
 
-/* ── Export slide list (22 slides: 5 dispatch + 17 investor) ── */
+/* ── Dispatch Slide 6: Diagnostic Sales Script ── */
+export const DiagnosticSalesScriptSlide = () => (
+  <div className="flex flex-col justify-center h-full px-24"
+    style={{ background: "hsl(0,0%,7%)" }}>
+    <p className="text-2xl font-semibold mb-4 uppercase tracking-widest" style={{ color: ORANGE }}>
+      Sales Script — Diagnostic
+    </p>
+    <h2 className="text-5xl font-bold text-white mb-8">Booking the Diagnostic Call</h2>
+    <div className="grid grid-cols-2 gap-8">
+      {/* Left: The Script */}
+      <div className="flex flex-col gap-5">
+        {[
+          {
+            step: "1",
+            label: "Acknowledge & Empathize",
+            color: WARM,
+            script: "\"I'm sorry to hear that — let's get that taken care of for you right away.\"",
+            note: "Mirror their urgency. Never minimize the problem.",
+          },
+          {
+            step: "2",
+            label: "Present the Diagnostic",
+            color: ORANGE,
+            script: "\"We'll send a licensed technician to diagnose exactly what's going on. The diagnostic is $199 for residential, and it covers a full system inspection — not just a quick look.\"",
+            note: "Lead with VALUE, not cost. Say 'investment' not 'fee.'",
+          },
+          {
+            step: "3",
+            label: "Explain What's Included",
+            color: GREEN,
+            script: "\"That includes a complete safety check, system performance test, and a written diagnosis with repair options and upfront pricing — no surprises.\"",
+            note: "Stack the value. Make $199 feel like a bargain.",
+          },
+          {
+            step: "4",
+            label: "Handle the Price Objection",
+            color: RED,
+            script: "\"I totally understand — most companies charge $150 just to show up and then hit you with a separate repair quote. Our $199 covers everything, and if you move forward with the repair, you already know the full cost upfront.\"",
+            note: "Reframe: competitors charge MORE with less transparency.",
+          },
+          {
+            step: "5",
+            label: "Close with Urgency",
+            color: WARM,
+            script: "\"We have a tech available [today/tomorrow]. We guarantee arrival within 90 minutes of your window — or the service call is free. Can I lock that in for you?\"",
+            note: "Use the 90-min guarantee as a closing tool.",
+          },
+        ].map((item, i) => (
+          <div key={i} className="flex gap-4 rounded-2xl p-5" style={{ background: "hsl(0,0%,11%)" }}>
+            <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 text-lg font-extrabold"
+              style={{ background: item.color, color: "white" }}>
+              {item.step}
+            </div>
+            <div className="flex-1">
+              <p className="text-lg font-bold text-white mb-1">{item.label}</p>
+              <p className="text-base italic text-white/75 mb-2 leading-relaxed">{item.script}</p>
+              <p className="text-sm text-white/40 flex items-start gap-1.5">
+                <Zap className="w-3.5 h-3.5 mt-0.5 flex-shrink-0" style={{ color: item.color }} />
+                {item.note}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+      {/* Right: Quick Ref & Objections */}
+      <div className="flex flex-col gap-5">
+        <div className="p-6 rounded-2xl" style={{ background: "linear-gradient(135deg, hsl(15,90%,55%,0.15), hsl(0,78%,50%,0.08))", border: "1px solid hsl(15,90%,55%,0.3)" }}>
+          <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+            <DollarSign className="w-5 h-5" style={{ color: ORANGE }} />
+            Quick Price Reference
+          </h3>
+          <div className="space-y-2">
+            {[
+              { label: "Residential Diagnostic", price: "$199" },
+              { label: "Commercial Standard", price: "$269" },
+              { label: "Complex Commercial", price: "$499" },
+              { label: "Replacement Estimate", price: "FREE" },
+            ].map((row, i) => (
+              <div key={i} className="flex justify-between items-center p-3 rounded-xl" style={{ background: "hsl(0,0%,9%)" }}>
+                <span className="text-sm text-white/60">{row.label}</span>
+                <span className="text-xl font-bold" style={{ color: row.price === "FREE" ? GREEN : ORANGE }}>{row.price}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="p-6 rounded-2xl" style={{ background: "hsl(0,0%,11%)" }}>
+          <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+            <Shield className="w-5 h-5" style={{ color: GREEN }} />
+            Objection Handlers
+          </h3>
+          <div className="space-y-4">
+            {[
+              {
+                objection: "\"That's too expensive\"",
+                response: "\"It covers a full inspection, safety check, AND upfront repair pricing. Most companies charge just to walk in the door — we give you a complete answer.\"",
+              },
+              {
+                objection: "\"Can you just give me a quote over the phone?\"",
+                response: "\"I wish I could! But every system is different — our tech needs to inspect it to give you an accurate, honest price. That's how we avoid surprises.\"",
+              },
+              {
+                objection: "\"I'll think about it\"",
+                response: "\"Totally fair. Just so you know, we're booking up fast this week. If you want, I can pencil you in — no obligation, and you can cancel anytime before.\"",
+              },
+              {
+                objection: "\"Do you offer free estimates?\"",
+                response: "\"Absolutely — system replacement estimates are always free. If you're looking at a repair, our $199 diagnostic gives you the full picture with no hidden costs.\"",
+              },
+            ].map((item, i) => (
+              <div key={i}>
+                <p className="text-sm font-bold mb-1" style={{ color: RED }}>{item.objection}</p>
+                <p className="text-sm text-white/65 italic leading-relaxed">{item.response}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="p-4 rounded-2xl text-center" style={{ background: `linear-gradient(135deg, ${GREEN}22, ${GREEN}11)`, border: `1px solid ${GREEN}44` }}>
+          <p className="text-lg font-bold" style={{ color: GREEN }}>🎯 Goal: Book the appointment</p>
+          <p className="text-sm text-white/50 mt-1">Don't sell the repair — sell the visit. The tech closes the job on-site.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
+/* ── Export slide list (23 slides: 6 dispatch + 17 investor) ── */
 export const slides = [
-  /* Dispatcher Guide (1-5) */
+  /* Dispatcher Guide (1-6) */
   { title: "Dispatch Guide", component: DispatchTitleSlide },
   { title: "Type of Service", component: ServiceTypeSlide },
   { title: "System Types", component: SystemTypeSlide },
   { title: "Diagnostic Fees", component: DiagnosticFeesSlide },
   { title: "Residential vs Commercial", component: ResidentialCommercialSlide },
+  { title: "Diagnostic Sales Script", component: DiagnosticSalesScriptSlide },
   /* Investor Deck (6-22) */
   { title: "Title", component: TitleSlide },
   { title: "The Problem", component: ProblemSlide },
