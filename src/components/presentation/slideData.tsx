@@ -1805,7 +1805,7 @@ export const DiagnosticSalesScriptSlide = () => (
             step: "2",
             label: "Present the Diagnostic",
             color: ORANGE,
-            script: "\"We'll send a licensed technician to diagnose exactly what's going on. The diagnostic is $199 for residential, and it covers a full system inspection — not just a quick look.\"",
+            script: "\"We'll send a licensed technician to diagnose exactly what's going on. The diagnostic is $199 for residential, and it covers a full system inspection — not just a quick look. And this amount is credited towards repair if you proceed with the repair.\"",
             note: "Lead with VALUE, not cost. Say 'investment' not 'fee.'",
           },
           {
