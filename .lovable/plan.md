@@ -1,56 +1,73 @@
 
-# Customer Service Dispatcher Guide Slides
 
-## Overview
+# Improving the Customer Service & Dispatch Guide
 
-Add 5 new slides to the front of the deck (positions 1-5) that serve as a dispatcher's quick-reference guide for scheduling HVAC service calls. All 17 existing investor slides shift to positions 6-22 -- nothing gets deleted.
+## Current State
+12 slides covering service types, system types, fees, residential vs. commercial, 5 sales scripts, and a cheat sheet. The mobile view still shows the old investor deck content.
 
-## New Slides (in order)
+## Proposed Improvements
 
-### Slide 1: Dispatcher Guide — Title/Cover
-A branded cover slide labeled "Customer Service & Dispatch Guide" with the Homets logo, a subtitle like "Quick Reference for Scheduling Calls," and the phone number prominently displayed.
+### 1. Fix Mobile View
+The `MobilePresentation.tsx` still renders the old investor deck (problem/solution/traction/ask). It needs to be updated to display the dispatch guide content instead -- either as a scrollable single-page reference or as swipeable slide cards.
 
-### Slide 2: Type of Service
-Three clear categories, each with an icon, short description, and common scenarios:
-- **Repair** -- System not working, strange noises, leaks, no heat/cool
-- **Install** -- New system, replacement of old unit, new construction
-- **Maintenance** -- Seasonal tune-up, filter change, annual inspection
+### 2. Add Missing Operational Slides
 
-Each card includes example customer phrases a dispatcher might hear (e.g., "My furnace won't turn on" maps to Repair).
+**Slide: Call Flow / Decision Tree**
+A visual flowchart showing the full call intake process: Answer -> Identify Emergency? -> Service Type -> System Type -> Residential/Commercial -> Select Script -> Book. Gives dispatchers a single-glance map of every call.
 
-### Slide 3: System Types
-A visual grid of the 5 system types the company services:
-- **Boilers** -- Hot water/steam heating systems
-- **Furnaces** -- Forced air gas/electric heating
-- **Air Conditioners (AC)** -- Central and window cooling units
-- **Heat Pumps** -- Dual heating/cooling electric systems
-- **Mini Splits** -- Ductless heating/cooling zones
+**Slide: Emergency & After-Hours Protocol**
+Covers what qualifies as an emergency (gas leak, no heat in winter, flooding), after-hours procedures, escalation contacts, and any special pricing or guarantees that apply.
 
-Each with an icon and 2-3 bullet points on what to ask the customer to identify the system.
+**Slide: Scheduling & Dispatch Rules**
+Covers the 90-minute arrival guarantee, how to set time windows, tech assignment logic, geographic zones (Nassau vs. Suffolk), and what to do when fully booked.
 
-### Slide 4: Diagnostic & Service Fees
-A clean fee table covering:
-- Standard diagnostic/service call fee
-- After-hours/emergency surcharge (if any)
-- What's included in the diagnostic visit
-- How fees apply toward repair cost
-- A note on the 90-minute response guarantee
+**Slide: Customer Information Checklist**
+A quick-reference of everything to collect on every call: name, address, phone, email, system type, system age, problem description, preferred time window, membership status, how they heard about Homets.
 
-### Slide 5: Residential vs. Commercial
-A side-by-side comparison:
-- **Residential**: Typical home systems, standard pricing, scheduling priority rules
-- **Commercial**: Larger systems, different pricing tiers, multi-unit considerations, property manager protocols
-- Key questions dispatchers should ask to determine residential vs. commercial (e.g., "Is this a home or a business?", "How many units?")
+### 3. Update Header Bar Text
+The top bar still says "Homets Air & Heat -- Investor Deck." Change it to "Customer Service & Dispatch Guide."
+
+### 4. Update Memory
+Update the project memory to reflect the new deck-only structure (no more investor slides).
 
 ## Technical Details
 
-**File modified:** `src/components/presentation/slideData.tsx`
-- Add 5 new exported slide components (DispatchTitleSlide, ServiceTypeSlide, SystemTypeSlide, DiagnosticFeesSlide, ResidentialCommercialSlide)
-- Uses existing design patterns: dark background (hsl(0,0%,7%)), brand color constants (ORANGE, RED, WARM, GREEN), rounded-2xl cards, Lucide icons
-- Update the `slides` export array to prepend the 5 new slides, pushing all 17 existing slides to indices 5-21
+### Files Modified
 
-**No other files change** -- PresentationShell, ScaledSlide, and MobilePresentation remain untouched.
+**`src/components/presentation/slideData.tsx`**
+- Add 4 new slide components: `CallFlowSlide`, `EmergencyProtocolSlide`, `SchedulingRulesSlide`, `CustomerChecklistSlide`
+- Insert them logically into the `slides` array (after the reference slides, before the sales scripts)
+- New slide count: 16
 
-## Slide Count
-- Before: 17 slides (investor deck)
-- After: 22 slides (5 dispatcher guide + 17 investor deck)
+**`src/components/presentation/MobilePresentation.tsx`**
+- Replace investor deck content with a scrollable dispatch guide layout
+- Sections for: quick call flow, service types, system types, fee reference, emergency protocol, and key phone numbers
+- Keep the sticky CTA bar at the bottom
+
+**`src/components/presentation/PresentationShell.tsx`**
+- Update the header text from "Investor Deck" to "Customer Service & Dispatch Guide"
+
+### Proposed Slide Order (16 slides)
+1. Dispatch Guide (cover)
+2. Call Flow / Decision Tree
+3. Job Types & Business Units
+4. Type of Service
+5. System Types
+6. Customer Information Checklist
+7. Diagnostic Fees
+8. Residential vs. Commercial
+9. Scheduling & Dispatch Rules
+10. Emergency & After-Hours Protocol
+11. Diagnostic Sales Script
+12. Estimate Sales Script
+13. Maintenance Sales Script
+14. Membership Sales Script
+15. Plumbing Sales Script
+16. Scripts Cheat Sheet
+
+### Design Approach
+- All new slides follow existing patterns: dark background (`hsl(0,0%,7%)`), brand colors (ORANGE, RED, WARM, GREEN), rounded-2xl cards, Lucide icons
+- Call Flow slide uses a step-based horizontal flow with arrows connecting each decision point
+- Emergency slide uses red/alert styling to visually stand out
+- Checklist slide uses a clean two-column form-field layout
+
