@@ -2007,9 +2007,134 @@ export const JobTypesSlide = () => {
   );
 };
 
-/* ── Export slide list (24 slides: 7 dispatch + 17 investor) ── */
+/* ── Dispatch Slide 8: Estimate Sales Script ── */
+export const EstimateSalesScriptSlide = () => (
+  <div className="flex flex-col justify-center h-full px-24"
+    style={{ background: "hsl(0,0%,7%)" }}>
+    <p className="text-2xl font-semibold mb-4 uppercase tracking-widest" style={{ color: GREEN }}>
+      Sales Script — Estimate
+    </p>
+    <h2 className="text-5xl font-bold text-white mb-8">Booking the Free Estimate</h2>
+    <div className="grid grid-cols-2 gap-8">
+      {/* Left: The Script */}
+      <div className="flex flex-col gap-5">
+        {[
+          {
+            step: "1",
+            label: "Qualify the Call",
+            color: WARM,
+            script: "\"Great — are you looking to replace an existing system, or is this for a new installation?\"",
+            note: "Determine replacement vs. new build right away.",
+          },
+          {
+            step: "2",
+            label: "Set Expectations",
+            color: GREEN,
+            script: "\"Perfect — we offer completely free, no-obligation estimates. One of our comfort advisors will come out, assess your space, and design a system that fits your home and budget.\"",
+            note: "Lead with FREE + no-obligation. Remove all risk.",
+          },
+          {
+            step: "3",
+            label: "Gather Key Info",
+            color: ORANGE,
+            script: "\"To make sure we send the right advisor, can I get a few quick details? How old is your current system? What's the square footage of your home? And what's prompting the change?\"",
+            note: "Age, sqft, and motivation help the advisor prepare.",
+          },
+          {
+            step: "4",
+            label: "Build Value",
+            color: WARM,
+            script: "\"Our advisor will walk you through all your options — from entry-level to premium — with financing available. We carry top brands like Carrier, Lennox, and Goodman, and every install comes with our workmanship guarantee.\"",
+            note: "Mention brands, financing, and guarantee to build trust.",
+          },
+          {
+            step: "5",
+            label: "Close & Confirm",
+            color: GREEN,
+            script: "\"We have availability [today/this week]. The visit takes about 45 minutes and you'll walk away with a detailed proposal — even if you decide not to move forward. Can I get you on the schedule?\"",
+            note: "Low-pressure close. Emphasize they get value either way.",
+          },
+        ].map((item, i) => (
+          <div key={i} className="flex gap-4 rounded-2xl p-5" style={{ background: "hsl(0,0%,11%)" }}>
+            <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 text-lg font-extrabold"
+              style={{ background: item.color, color: "white" }}>
+              {item.step}
+            </div>
+            <div className="flex-1">
+              <p className="text-lg font-bold text-white mb-1">{item.label}</p>
+              <p className="text-base italic text-white/75 mb-2 leading-relaxed">{item.script}</p>
+              <p className="text-sm text-white/40 flex items-start gap-1.5">
+                <Zap className="w-3.5 h-3.5 mt-0.5 flex-shrink-0" style={{ color: item.color }} />
+                {item.note}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+      {/* Right: Key Details & Objections */}
+      <div className="flex flex-col gap-5">
+        <div className="p-6 rounded-2xl" style={{ background: `linear-gradient(135deg, ${GREEN}22, ${GREEN}11)`, border: `1px solid ${GREEN}44` }}>
+          <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+            <DollarSign className="w-5 h-5" style={{ color: GREEN }} />
+            Estimate Overview
+          </h3>
+          <div className="space-y-2">
+            {[
+              { label: "Estimate Visit", price: "FREE", highlight: true },
+              { label: "Visit Duration", price: "~45 min", highlight: false },
+              { label: "Options Presented", price: "3+", highlight: false },
+              { label: "Financing Available", price: "YES", highlight: true },
+            ].map((row, i) => (
+              <div key={i} className="flex justify-between items-center p-3 rounded-xl" style={{ background: "hsl(0,0%,9%)" }}>
+                <span className="text-sm text-white/60">{row.label}</span>
+                <span className="text-xl font-bold" style={{ color: row.highlight ? GREEN : ORANGE }}>{row.price}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="p-6 rounded-2xl" style={{ background: "hsl(0,0%,11%)" }}>
+          <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+            <Shield className="w-5 h-5" style={{ color: GREEN }} />
+            Objection Handlers
+          </h3>
+          <div className="space-y-4">
+            {[
+              {
+                objection: "\"I'm just getting quotes to compare\"",
+                response: "\"That's exactly what we recommend! Our proposal will be detailed with multiple options so you can compare apples to apples. And there's zero pressure — we want you to feel confident in your decision.\"",
+              },
+              {
+                objection: "\"Can you give me a ballpark over the phone?\"",
+                response: "\"I wish I could! But every home is different — ductwork, insulation, square footage all affect the recommendation. Our free visit makes sure you get an accurate number, not a guess.\"",
+              },
+              {
+                objection: "\"I'm not ready to buy yet\"",
+                response: "\"No problem at all! Most customers use the estimate to plan ahead. You'll have a locked-in price you can act on whenever you're ready — no expiration pressure.\"",
+              },
+              {
+                objection: "\"How much does a new system cost?\"",
+                response: "\"Systems range widely depending on your home size and needs. Our advisor will show you options from entry-level to premium — many customers are surprised by the affordable financing options.\"",
+              },
+            ].map((item, i) => (
+              <div key={i}>
+                <p className="text-sm font-bold mb-1" style={{ color: RED }}>{item.objection}</p>
+                <p className="text-sm text-white/65 italic leading-relaxed">{item.response}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="p-4 rounded-2xl text-center" style={{ background: `linear-gradient(135deg, ${GREEN}22, ${GREEN}11)`, border: `1px solid ${GREEN}44` }}>
+          <p className="text-lg font-bold" style={{ color: GREEN }}>🎯 Goal: Book the free estimate</p>
+          <p className="text-sm text-white/50 mt-1">Sell the visit, not the system. The comfort advisor closes on-site.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
+/* ── Export slide list (25 slides: 8 dispatch + 17 investor) ── */
 export const slides = [
-  /* Dispatcher Guide (1-7) */
+  /* Dispatcher Guide (1-8) */
   { title: "Dispatch Guide", component: DispatchTitleSlide },
   { title: "Job Types & Business Units", component: JobTypesSlide },
   { title: "Type of Service", component: ServiceTypeSlide },
@@ -2017,7 +2142,8 @@ export const slides = [
   { title: "Diagnostic Fees", component: DiagnosticFeesSlide },
   { title: "Residential vs Commercial", component: ResidentialCommercialSlide },
   { title: "Diagnostic Sales Script", component: DiagnosticSalesScriptSlide },
-  /* Investor Deck (6-22) */
+  { title: "Estimate Sales Script", component: EstimateSalesScriptSlide },
+  /* Investor Deck (9-25) */
   { title: "Title", component: TitleSlide },
   { title: "The Problem", component: ProblemSlide },
   { title: "The Solution", component: SolutionSlide },
