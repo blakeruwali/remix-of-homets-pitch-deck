@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { kbSections } from "../../knowledge-base/kbData";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Search, X } from "lucide-react";
 
 const ORANGE = "hsl(15, 90%, 55%)";
 const SURFACE2 = "hsl(0, 0%, 14%)";
@@ -11,13 +11,46 @@ const BORDER = "hsl(0, 0%, 18%)";
 export const MobileKBView: React.FC = () => {
   const [openSection, setOpenSection] = useState<string | null>(null);
   const [openArticle, setOpenArticle] = useState<string | null>(null);
+  const [query, setQuery] = useState("");
+
+  const q = query.toLowerCase().trim();
+  const filteredSections = useMemo(() => {
+    if (!q) return kbSections;
+    return kbSections
+      .map((s) => ({
+        ...s,
+        articles: s.articles.filter(
+          (a) => a.title.toLowerCase().includes(q) || a.keywords.toLowerCase().includes(q)
+        ),
+      }))
+      .filter((s) => s.articles.length > 0);
+  }, [q]);
 
   return (
     <div className="px-4 py-6 space-y-3">
-      <h2 className="text-xl font-bold mb-4" style={{ color: TEXT, fontFamily: "'Playfair Display', serif" }}>
+      <h2 className="text-xl font-bold mb-2" style={{ color: TEXT, fontFamily: "'Playfair Display', serif" }}>
         <span style={{ color: ORANGE }}>— </span>Knowledge Base
       </h2>
-      {kbSections.map((section) => {
+      <div className="relative mb-3">
+        <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4" style={{ color: MUTED }} />
+        <input
+          type="text"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder="Search articles..."
+          className="w-full rounded-xl py-2.5 pl-10 pr-10 text-sm outline-none"
+          style={{ background: SURFACE2, color: TEXT, border: `1px solid ${BORDER}` }}
+        />
+        {query && (
+          <button onClick={() => setQuery("")} className="absolute right-3 top-1/2 -translate-y-1/2">
+            <X className="w-4 h-4" style={{ color: MUTED }} />
+          </button>
+        )}
+      </div>
+      {filteredSections.length === 0 && q && (
+        <p className="text-sm text-center py-8" style={{ color: MUTED }}>No matching articles found</p>
+      )}
+      {filteredSections.map((section) => {
         const isOpen = openSection === section.id;
         const Icon = section.icon;
         return (
