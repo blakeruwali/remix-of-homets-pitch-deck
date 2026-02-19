@@ -1871,7 +1871,148 @@ export const ObjectionHandlingSlide = () => {
   );
 };
 
-/* ── Export slide list (17 slides: Customer Service & Dispatch Guide) ── */
+/* ── Dispatch Slide 18: Dispatch Decision Flowchart ── */
+export const DispatchFlowchartSlide = () => (
+  <div className="flex flex-col justify-center h-full px-24"
+    style={{ background: "hsl(0,0%,7%)" }}>
+    <p className="text-2xl font-semibold mb-4 uppercase tracking-widest" style={{ color: "hsl(200,80%,55%)" }}>
+      Dispatch Operations
+    </p>
+    <h2 className="text-5xl font-bold text-white mb-8">Dispatch Decision Flowchart</h2>
+
+    {/* Flowchart */}
+    <div className="flex items-start gap-4 mb-8">
+      {/* Step 1: New Call */}
+      <div className="flex flex-col items-center flex-1">
+        <div className="w-full p-5 rounded-2xl text-center" style={{ background: `linear-gradient(135deg, ${ORANGE}, ${WARM})` }}>
+          <PhoneCall className="w-7 h-7 text-white mx-auto mb-2" />
+          <p className="text-lg font-bold text-white">New Call</p>
+          <p className="text-xs text-white/70">Identify need & urgency</p>
+        </div>
+        <ArrowRight className="w-5 h-5 text-white/30 rotate-90 my-2" />
+        <div className="w-full p-3 rounded-xl text-center" style={{ background: "hsl(0,0%,13%)", border: "1px solid hsl(0,0%,18%)" }}>
+          <p className="text-sm text-white/70">Is it an emergency?</p>
+        </div>
+        <div className="flex gap-6 mt-2 w-full">
+          <div className="flex flex-col items-center flex-1">
+            <span className="text-xs font-bold mb-1" style={{ color: RED }}>YES</span>
+            <div className="w-full p-2.5 rounded-lg text-center" style={{ background: `${RED}20`, border: `1px solid ${RED}44` }}>
+              <Siren className="w-4 h-4 mx-auto mb-1" style={{ color: RED }} />
+              <p className="text-xs text-white/80">Priority 1</p>
+            </div>
+          </div>
+          <div className="flex flex-col items-center flex-1">
+            <span className="text-xs font-bold mb-1" style={{ color: GREEN }}>NO</span>
+            <div className="w-full p-2.5 rounded-lg text-center" style={{ background: `${GREEN}20`, border: `1px solid ${GREEN}44` }}>
+              <Calendar className="w-4 h-4 mx-auto mb-1" style={{ color: GREEN }} />
+              <p className="text-xs text-white/80">Schedule</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Arrow */}
+      <ArrowRight className="w-6 h-6 text-white/20 flex-shrink-0 mt-8" />
+
+      {/* Step 2: Check Board */}
+      <div className="flex flex-col items-center flex-1">
+        <div className="w-full p-5 rounded-2xl text-center" style={{ background: "hsl(200,80%,55%)" }}>
+          <ClipboardList className="w-7 h-7 text-white mx-auto mb-2" />
+          <p className="text-lg font-bold text-white">Check Board</p>
+          <p className="text-xs text-white/70">Review availability</p>
+        </div>
+        <ArrowRight className="w-5 h-5 text-white/30 rotate-90 my-2" />
+        <div className="w-full space-y-2">
+          <div className="p-3 rounded-lg" style={{ background: "hsl(0,0%,13%)", border: "1px solid hsl(0,0%,18%)" }}>
+            <p className="text-xs text-white/60 mb-1">Check:</p>
+            <div className="space-y-1">
+              {["Tech skills match", "Zone proximity", "Open time slots", "Member priority"].map((item, i) => (
+                <div key={i} className="flex items-center gap-1.5">
+                  <CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: "hsl(200,80%,55%)" }} />
+                  <span className="text-xs text-white/70">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Arrow */}
+      <ArrowRight className="w-6 h-6 text-white/20 flex-shrink-0 mt-8" />
+
+      {/* Step 3: Assign */}
+      <div className="flex flex-col items-center flex-1">
+        <div className="w-full p-5 rounded-2xl text-center" style={{ background: GREEN }}>
+          <User className="w-7 h-7 text-white mx-auto mb-2" />
+          <p className="text-lg font-bold text-white">Assign Tech</p>
+          <p className="text-xs text-white/70">Best match for the job</p>
+        </div>
+        <ArrowRight className="w-5 h-5 text-white/30 rotate-90 my-2" />
+        <div className="w-full p-3 rounded-xl text-center" style={{ background: "hsl(0,0%,13%)", border: "1px solid hsl(0,0%,18%)" }}>
+          <p className="text-sm text-white/70">Board full?</p>
+        </div>
+        <div className="flex gap-6 mt-2 w-full">
+          <div className="flex flex-col items-center flex-1">
+            <span className="text-xs font-bold mb-1" style={{ color: ORANGE }}>YES</span>
+            <div className="w-full p-2.5 rounded-lg text-center" style={{ background: `${ORANGE}20`, border: `1px solid ${ORANGE}44` }}>
+              <p className="text-xs text-white/80">Squeeze-in or Waitlist</p>
+            </div>
+          </div>
+          <div className="flex flex-col items-center flex-1">
+            <span className="text-xs font-bold mb-1" style={{ color: GREEN }}>NO</span>
+            <div className="w-full p-2.5 rounded-lg text-center" style={{ background: `${GREEN}20`, border: `1px solid ${GREEN}44` }}>
+              <p className="text-xs text-white/80">Book slot</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Arrow */}
+      <ArrowRight className="w-6 h-6 text-white/20 flex-shrink-0 mt-8" />
+
+      {/* Step 4: Confirm */}
+      <div className="flex flex-col items-center flex-1">
+        <div className="w-full p-5 rounded-2xl text-center" style={{ background: `linear-gradient(135deg, ${WARM}, ${ORANGE})` }}>
+          <Phone className="w-7 h-7 text-white mx-auto mb-2" />
+          <p className="text-lg font-bold text-white">Confirm</p>
+          <p className="text-xs text-white/70">Call customer with ETA</p>
+        </div>
+        <ArrowRight className="w-5 h-5 text-white/30 rotate-90 my-2" />
+        <div className="w-full space-y-2">
+          {[
+            { label: "Confirm date/time", icon: Calendar },
+            { label: "Set arrival window", icon: Clock },
+            { label: "Text tech photo + ETA", icon: Mail },
+            { label: "Log in ServiceTitan", icon: FileText },
+          ].map((item, i) => (
+            <div key={i} className="flex items-center gap-2 p-2 rounded-lg" style={{ background: "hsl(0,0%,13%)" }}>
+              <item.icon className="w-3.5 h-3.5 flex-shrink-0" style={{ color: ORANGE }} />
+              <span className="text-xs text-white/70">{item.label}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    {/* Bottom: Priority Reference */}
+    <div className="grid grid-cols-4 gap-4">
+      {[
+        { level: "P1 — Immediate", time: "< 1 hour", examples: "Gas leak, CO alarm, flooding, fire risk", color: RED },
+        { level: "P2 — Same Day", time: "2–4 hours", examples: "No heat < 40°F, no AC > 90°F, sewage backup", color: ORANGE },
+        { level: "P3 — Next Day", time: "Next available", examples: "System running poorly, noises, thermostat issues", color: WARM },
+        { level: "P4 — Scheduled", time: "Customer choice", examples: "Tune-ups, estimates, maintenance, installs", color: GREEN },
+      ].map((p, i) => (
+        <div key={i} className="p-4 rounded-xl" style={{ background: `${p.color}10`, border: `1px solid ${p.color}33` }}>
+          <p className="text-sm font-bold mb-1" style={{ color: p.color }}>{p.level}</p>
+          <p className="text-xs text-white/50 mb-2">Response: {p.time}</p>
+          <p className="text-xs text-white/60">{p.examples}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+);
+
+/* ── Export slide list (18 slides: Customer Service & Dispatch Guide) ── */
 export const slides = [
   { title: "Dispatch Guide", component: DispatchTitleSlide, keywords: "cover title homets phone number dispatch guide" },
   { title: "Call Flow / Decision Tree", component: CallFlowSlide, keywords: "call flow decision tree intake answer identify emergency service type book" },
@@ -1890,4 +2031,5 @@ export const slides = [
   { title: "Plumbing Sales Script", component: PlumbingSalesScriptSlide, keywords: "plumbing sales script drain water heater leak" },
   { title: "Scripts Cheat Sheet", component: ScriptsCheatSheetSlide, keywords: "cheat sheet quick reference scripts summary objections" },
   { title: "Objection Handling", component: ObjectionHandlingSlide, keywords: "objection handling price expensive refund angry competitor discount rebuttal de-escalation trust credibility timing urgency spouse landlord guarantee" },
+  { title: "Dispatch Flowchart", component: DispatchFlowchartSlide, keywords: "dispatch flowchart routing assign tech priority emergency capacity squeeze-in board decision" },
 ];
