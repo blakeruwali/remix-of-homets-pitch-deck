@@ -2151,7 +2151,146 @@ export const RepairRunningLongSlide = () => (
   </div>
 );
 
-/* ── Export slide list (19 slides: Customer Service & Dispatch Guide) ── */
+/* ── Slide 20: Tech Calls Out Sick Mid-Day ── */
+const TechCalloutSlide = () => (
+  <div className="flex flex-col gap-6" style={{ color: "hsl(0,0%,95%)" }}>
+    {/* Header */}
+    <div className="flex items-center gap-4">
+      <div className="w-12 h-12 rounded-2xl flex items-center justify-center" style={{ background: `${RED}22`, border: `1px solid ${RED}44` }}>
+        <UserX className="w-6 h-6" style={{ color: RED }} />
+      </div>
+      <div>
+        <h2 className="text-3xl font-bold text-white">Tech Calls Out Sick — Mid-Day Protocol</h2>
+        <p className="text-base text-white/50 mt-1">Redistributing jobs when a tech goes down during the day</p>
+      </div>
+    </div>
+
+    {/* Step-by-step protocol */}
+    <div className="grid grid-cols-1 gap-4">
+      {/* Step 1 */}
+      <div className="rounded-xl p-5" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,18%)" }}>
+        <div className="flex items-center gap-3 mb-3">
+          <div className="w-8 h-8 rounded-lg flex items-center justify-center text-sm font-bold" style={{ background: `${ORANGE}22`, color: ORANGE, border: `1px solid ${ORANGE}44` }}>1</div>
+          <p className="text-lg font-bold text-white">Assess the Board</p>
+          <span className="ml-auto text-xs px-2 py-1 rounded-full" style={{ background: `${ORANGE}22`, color: ORANGE }}>Dispatch — Immediately</span>
+        </div>
+        <div className="grid grid-cols-3 gap-3 ml-11">
+          <div className="flex items-start gap-2">
+            <ClipboardList className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: ORANGE }} />
+            <p className="text-xs text-white/60">Pull up the sick tech's remaining jobs for the day</p>
+          </div>
+          <div className="flex items-start gap-2">
+            <AlertTriangle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: ORANGE }} />
+            <p className="text-xs text-white/60">Identify priority: any emergencies or callbacks first</p>
+          </div>
+          <div className="flex items-start gap-2">
+            <Clock className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: ORANGE }} />
+            <p className="text-xs text-white/60">Note time windows promised to each customer</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Step 2 */}
+      <div className="rounded-xl p-5" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,18%)" }}>
+        <div className="flex items-center gap-3 mb-3">
+          <div className="w-8 h-8 rounded-lg flex items-center justify-center text-sm font-bold" style={{ background: `${WARM}22`, color: WARM, border: `1px solid ${WARM}44` }}>2</div>
+          <p className="text-lg font-bold text-white">Redistribute Jobs</p>
+          <span className="ml-auto text-xs px-2 py-1 rounded-full" style={{ background: `${WARM}22`, color: WARM }}>Dispatch — Within 15 min</span>
+        </div>
+        <div className="grid grid-cols-3 gap-3 ml-11">
+          <div className="flex items-start gap-2">
+            <Users className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: WARM }} />
+            <p className="text-xs text-white/60">Check remaining techs' boards for capacity and zone proximity</p>
+          </div>
+          <div className="flex items-start gap-2">
+            <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: WARM }} />
+            <p className="text-xs text-white/60">Assign by zone first — minimize drive time between jobs</p>
+          </div>
+          <div className="flex items-start gap-2">
+            <Calendar className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: WARM }} />
+            <p className="text-xs text-white/60">If no capacity today, move non-urgent jobs to next available day</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Step 3 */}
+      <div className="rounded-xl p-5" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,18%)" }}>
+        <div className="flex items-center gap-3 mb-3">
+          <div className="w-8 h-8 rounded-lg flex items-center justify-center text-sm font-bold" style={{ background: `${GREEN}22`, color: GREEN, border: `1px solid ${GREEN}44` }}>3</div>
+          <p className="text-lg font-bold text-white">Notify All Affected Customers</p>
+          <span className="ml-auto text-xs px-2 py-1 rounded-full" style={{ background: `${GREEN}22`, color: GREEN }}>CS — Within 30 min</span>
+        </div>
+        <div className="grid grid-cols-2 gap-3 ml-11">
+          <div className="rounded-lg p-3" style={{ background: "hsl(0,0%,8%)", border: "1px solid hsl(0,0%,15%)" }}>
+            <p className="text-xs font-semibold text-white/80 mb-2 flex items-center gap-2">
+              <Phone className="w-3.5 h-3.5" style={{ color: GREEN }} />
+              If reassigned to another tech today:
+            </p>
+            <p className="text-xs text-white/50 italic">"Hi [Name], we had a scheduling change and [New Tech] will be heading your way. Your new arrival window is [Time]. We appreciate your flexibility!"</p>
+          </div>
+          <div className="rounded-lg p-3" style={{ background: "hsl(0,0%,8%)", border: "1px solid hsl(0,0%,15%)" }}>
+            <p className="text-xs font-semibold text-white/80 mb-2 flex items-center gap-2">
+              <Phone className="w-3.5 h-3.5" style={{ color: WARM }} />
+              If rescheduled to another day:
+            </p>
+            <p className="text-xs text-white/50 italic">"Hi [Name], unfortunately we need to reschedule your appointment. The earliest we can get a tech out is [Date/Window]. We apologize for the inconvenience."</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Step 4 */}
+      <div className="rounded-xl p-5" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,18%)" }}>
+        <div className="flex items-center gap-3 mb-3">
+          <div className="w-8 h-8 rounded-lg flex items-center justify-center text-sm font-bold" style={{ background: `${MUTED}22`, color: MUTED, border: `1px solid ${MUTED}44` }}>4</div>
+          <p className="text-lg font-bold text-white">Document & Update</p>
+          <span className="ml-auto text-xs px-2 py-1 rounded-full" style={{ background: `${MUTED}22`, color: MUTED }}>Both — End of Shift</span>
+        </div>
+        <div className="grid grid-cols-3 gap-3 ml-11">
+          <div className="flex items-start gap-2">
+            <FileText className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: MUTED }} />
+            <p className="text-xs text-white/60">Log tech callout reason in ServiceTitan</p>
+          </div>
+          <div className="flex items-start gap-2">
+            <CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: MUTED }} />
+            <p className="text-xs text-white/60">Confirm all jobs reassigned or rescheduled — none left unassigned</p>
+          </div>
+          <div className="flex items-start gap-2">
+            <Headphones className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: MUTED }} />
+            <p className="text-xs text-white/60">Flag any customer complaints for follow-up next day</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {/* Priority order reminder */}
+    <div className="rounded-xl p-4" style={{ background: `${RED}08`, border: `1px solid ${RED}22` }}>
+      <p className="text-sm font-bold mb-2 flex items-center gap-2" style={{ color: RED }}>
+        <Siren className="w-4 h-4" />
+        Redistribution Priority Order
+      </p>
+      <div className="grid grid-cols-4 gap-3">
+        <div className="flex items-center gap-2">
+          <span className="w-5 h-5 rounded flex items-center justify-center text-[10px] font-bold" style={{ background: `${RED}22`, color: RED }}>1</span>
+          <p className="text-xs text-white/60">Gas leaks & safety calls</p>
+        </div>
+        <div className="flex items-center gap-2">
+          <span className="w-5 h-5 rounded flex items-center justify-center text-[10px] font-bold" style={{ background: `${ORANGE}22`, color: ORANGE }}>2</span>
+          <p className="text-xs text-white/60">No heat / no AC (weather-dependent)</p>
+        </div>
+        <div className="flex items-center gap-2">
+          <span className="w-5 h-5 rounded flex items-center justify-center text-[10px] font-bold" style={{ background: `${WARM}22`, color: WARM }}>3</span>
+          <p className="text-xs text-white/60">Callbacks & warranty returns</p>
+        </div>
+        <div className="flex items-center gap-2">
+          <span className="w-5 h-5 rounded flex items-center justify-center text-[10px] font-bold" style={{ background: `${MUTED}22`, color: MUTED }}>4</span>
+          <p className="text-xs text-white/60">Maintenance & tune-ups (reschedule first)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
+/* ── Export slide list (20 slides: Customer Service & Dispatch Guide) ── */
 export const slides = [
   { title: "Dispatch Guide", component: DispatchTitleSlide, keywords: "cover title homets phone number dispatch guide" },
   { title: "Call Flow / Decision Tree", component: CallFlowSlide, keywords: "call flow decision tree intake answer identify emergency service type book" },
@@ -2172,4 +2311,5 @@ export const slides = [
   { title: "Objection Handling", component: ObjectionHandlingSlide, keywords: "objection handling price expensive refund angry competitor discount rebuttal de-escalation trust credibility timing urgency spouse landlord guarantee" },
   { title: "Dispatch Flowchart", component: DispatchFlowchartSlide, keywords: "dispatch flowchart routing assign tech priority emergency capacity squeeze-in board decision" },
   { title: "Repair Running Long", component: RepairRunningLongSlide, keywords: "repair running long delay late tech over estimate update customer reassign dispatch protocol threshold" },
+  { title: "Tech Calls Out Sick", component: TechCalloutSlide, keywords: "tech sick callout mid-day redistribute reassign jobs board capacity zone priority protocol" },
 ];
