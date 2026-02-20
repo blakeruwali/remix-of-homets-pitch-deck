@@ -2880,7 +2880,118 @@ export const PartNotOnTruckSlide = () => (
   </div>
 );
 
-/* ── Export slide list (25 slides: Customer Service & Dispatch Guide) ── */
+/* ── Dispatch Scenario: Customer No-Show ── */
+export const CustomerNoShowSlide = () => (
+  <div className="flex flex-col justify-center h-full px-24"
+    style={{ background: "linear-gradient(135deg, hsl(0,0%,6%) 0%, hsl(0,0%,12%) 100%)" }}>
+    {/* Header */}
+    <div className="flex items-center gap-3 mb-6">
+      <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: `${RED}18`, border: `1px solid ${RED}33` }}>
+        <UserX className="w-5 h-5" style={{ color: RED }} />
+      </div>
+      <div>
+        <h2 className="text-3xl font-bold text-white">Customer No-Show — Empty House Protocol</h2>
+        <p className="text-sm text-white/50 mt-0.5">When the tech arrives and no one is home</p>
+      </div>
+    </div>
+
+    {/* 3-step protocol */}
+    <div className="grid grid-cols-3 gap-4 mb-5">
+      {/* Step 1: Attempt Contact */}
+      <div className="rounded-xl p-4" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,18%)" }}>
+        <div className="flex items-center gap-2 mb-3">
+          <div className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style={{ background: ORANGE, color: "#fff" }}>1</div>
+          <span className="text-sm font-semibold text-white">Attempt Contact</span>
+          <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-white/10 text-white/50 ml-auto">Tech on-site</span>
+        </div>
+        <ul className="space-y-2">
+          <li className="text-xs text-white/60 flex items-start gap-2"><Phone className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: ORANGE }} />Tech calls customer — let it ring, then try again</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><MessageSquare className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: ORANGE }} />Send a text: "Hi, this is your Homets tech — I'm at your door. Please let me know if you're nearby!"</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><Clock className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: ORANGE }} />Wait <strong className="text-white/80">10 minutes</strong> at the property</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><AlertTriangle className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: WARM }} />If no response → Tech notifies Dispatch</li>
+        </ul>
+      </div>
+
+      {/* Step 2: CS Outreach */}
+      <div className="rounded-xl p-4" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,18%)" }}>
+        <div className="flex items-center gap-2 mb-3">
+          <div className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style={{ background: ORANGE, color: "#fff" }}>2</div>
+          <span className="text-sm font-semibold text-white">CS Calls Customer</span>
+          <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-white/10 text-white/50 ml-auto">Dispatch</span>
+        </div>
+        <div className="rounded-lg p-3 mb-3" style={{ background: `${ORANGE}08`, border: `1px solid ${ORANGE}18` }}>
+          <p className="text-[10px] uppercase tracking-wider font-bold mb-1.5" style={{ color: ORANGE }}>No-Show Script</p>
+          <p className="text-xs text-white/70 italic leading-relaxed">
+            "Hi [Name], this is [CS] from Homets. Our technician is at your home for your [service] appointment but wasn't able to reach you. Are you available? We'd love to get this taken care of for you today."
+          </p>
+        </div>
+        <ul className="space-y-1.5">
+          <li className="text-xs text-white/60 flex items-center gap-2"><CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: GREEN }} /><strong className="text-white/70">Reached:</strong> Confirm if customer is en route or needs to reschedule</li>
+          <li className="text-xs text-white/60 flex items-center gap-2"><AlertTriangle className="w-3 h-3 flex-shrink-0" style={{ color: RED }} /><strong className="text-white/70">No answer:</strong> Leave voicemail, send text, move to Step 3</li>
+        </ul>
+      </div>
+
+      {/* Step 3: Release & Reassign */}
+      <div className="rounded-xl p-4" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,18%)" }}>
+        <div className="flex items-center gap-2 mb-3">
+          <div className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style={{ background: ORANGE, color: "#fff" }}>3</div>
+          <span className="text-sm font-semibold text-white">Release & Reassign</span>
+          <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-white/10 text-white/50 ml-auto">Dispatch</span>
+        </div>
+        <ul className="space-y-2">
+          <li className="text-xs text-white/60 flex items-start gap-2"><ArrowRight className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: ORANGE }} />Release tech from the no-show — send to next job or pull-ahead</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><Calendar className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: ORANGE }} />Tag job as <strong className="text-white/70">"No-Show"</strong> in ServiceTitan</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><Phone className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: ORANGE }} />Attempt follow-up call 2 hours later to reschedule</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><FileText className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: WARM }} />Log: date, time arrived, contact attempts, and outcome</li>
+        </ul>
+      </div>
+    </div>
+
+    {/* Policy note */}
+    <div className="rounded-xl p-4 mb-4" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,18%)" }}>
+      <div className="flex items-center gap-2 mb-2">
+        <Shield className="w-4 h-4" style={{ color: WARM }} />
+        <span className="text-sm font-semibold text-white">No-Show Policy Reference</span>
+      </div>
+      <div className="grid grid-cols-3 gap-4">
+        <div>
+          <p className="text-[10px] uppercase tracking-wider font-bold mb-1" style={{ color: ORANGE }}>1st No-Show</p>
+          <p className="text-xs text-white/60">Reschedule with courtesy reminder. No fee. Note the account.</p>
+        </div>
+        <div>
+          <p className="text-[10px] uppercase tracking-wider font-bold mb-1" style={{ color: WARM }}>2nd No-Show</p>
+          <p className="text-xs text-white/60">Reschedule with confirmation required day-before. Flag account.</p>
+        </div>
+        <div>
+          <p className="text-[10px] uppercase tracking-wider font-bold mb-1" style={{ color: RED }}>3rd No-Show</p>
+          <p className="text-xs text-white/60">Require prepayment or credit card on file before booking. Manager review.</p>
+        </div>
+      </div>
+    </div>
+
+    {/* Do / Don't */}
+    <div className="grid grid-cols-2 gap-4">
+      <div className="rounded-xl p-3" style={{ background: `${GREEN}08`, border: `1px solid ${GREEN}22` }}>
+        <p className="text-[10px] uppercase tracking-wider font-bold mb-1.5" style={{ color: GREEN }}>Do</p>
+        <ul className="space-y-1">
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: GREEN }} />Always call & text before leaving — document every attempt</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: GREEN }} />Give the customer benefit of the doubt on the first occurrence</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: GREEN }} />Use the open slot productively — pull-ahead or waiting list</li>
+        </ul>
+      </div>
+      <div className="rounded-xl p-3" style={{ background: `${RED}08`, border: `1px solid ${RED}22` }}>
+        <p className="text-[10px] uppercase tracking-wider font-bold mb-1.5" style={{ color: RED }}>Don't</p>
+        <ul className="space-y-1">
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><AlertTriangle className="w-3 h-3 flex-shrink-0" style={{ color: RED }} />Leave without documenting — every no-show must be logged</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><AlertTriangle className="w-3 h-3 flex-shrink-0" style={{ color: RED }} />Make the customer feel punished when they call back</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><AlertTriangle className="w-3 h-3 flex-shrink-0" style={{ color: RED }} />Let the tech sit idle — reassign immediately after 10-minute wait</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+);
+
+/* ── Export slide list (26 slides: Customer Service & Dispatch Guide) ── */
 export const slides = [
   { title: "Dispatch Guide", component: DispatchTitleSlide, keywords: "cover title homets phone number dispatch guide" },
   { title: "Call Flow / Decision Tree", component: CallFlowSlide, keywords: "call flow decision tree intake answer identify emergency service type book" },
@@ -2907,4 +3018,5 @@ export const slides = [
   { title: "Scope Escalation", component: ScopeEscalationSlide, keywords: "scope escalation larger than expected replacement repair diagnostic advisor comfort system upgrade convert job" },
   { title: "Specific Tech Request", component: SpecificTechRequestSlide, keywords: "specific tech request customer preference booked full schedule accommodate redirect waitlist loyalty" },
   { title: "Part Not on Truck", component: PartNotOnTruckSlide, keywords: "part not on truck supply house order return trip special order inventory leave come back reschedule" },
+  { title: "Customer No-Show", component: CustomerNoShowSlide, keywords: "no show empty house no answer arrived nobody home reschedule policy contact attempt" },
 ];
