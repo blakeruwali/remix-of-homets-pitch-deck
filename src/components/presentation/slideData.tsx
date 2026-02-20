@@ -3704,7 +3704,219 @@ export const TwoTechJobSlide = () => (
   </div>
 );
 
-/* ── Export slide list (33 slides: Customer Service & Dispatch Guide) ── */
+/* ── Dispatch Scenario: Misdiagnosed / Mis-Booked Job ── */
+export const MisbookedJobSlide = () => (
+  <div className="flex flex-col justify-center h-full px-24"
+    style={{ background: "linear-gradient(135deg, hsl(0,0%,6%) 0%, hsl(0,0%,12%) 100%)" }}>
+    <div className="flex items-center gap-3 mb-6">
+      <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: `${RED}18`, border: `1px solid ${RED}33` }}>
+        <HelpCircle className="w-5 h-5" style={{ color: RED }} />
+      </div>
+      <div>
+        <h2 className="text-3xl font-bold text-white">Misdiagnosed / Mis-Booked Job</h2>
+        <p className="text-sm text-white/50 mt-0.5">Tech arrives and the actual issue doesn't match what was booked</p>
+      </div>
+    </div>
+
+    {/* Common scenarios */}
+    <div className="rounded-xl p-4 mb-4" style={{ background: `${RED}08`, border: `1px solid ${RED}15` }}>
+      <p className="text-xs font-bold uppercase tracking-wider mb-2" style={{ color: RED }}>Common Mis-Book Scenarios</p>
+      <div className="grid grid-cols-4 gap-3">
+        {[
+          { icon: Snowflake, label: "Wrong Trade", desc: "Booked as HVAC but it's a plumbing or electrical issue" },
+          { icon: Wrench, label: "Wrong Service", desc: "Booked as repair but needs full replacement / estimate" },
+          { icon: Building, label: "Wrong Scope", desc: "Booked residential but it's a commercial property" },
+          { icon: Settings, label: "Wrong System", desc: "Booked for AC but the issue is the furnace or thermostat" },
+        ].map((item, i) => (
+          <div key={i} className="rounded-lg p-3" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,15%)" }}>
+            <item.icon className="w-4 h-4 mb-2" style={{ color: RED }} />
+            <p className="text-xs font-semibold text-white mb-1">{item.label}</p>
+            <p className="text-[11px] text-white/45">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div className="grid grid-cols-3 gap-4 mb-5">
+      {/* Step 1 */}
+      <div className="rounded-xl p-4" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,18%)" }}>
+        <div className="flex items-center gap-2 mb-3">
+          <div className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style={{ background: RED, color: "#fff" }}>1</div>
+          <span className="text-sm font-semibold text-white">Tech Reports Mismatch</span>
+        </div>
+        <ul className="space-y-2">
+          <li className="text-xs text-white/60 flex items-start gap-2"><Phone className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: RED }} />Tech calls dispatch immediately — describes actual issue vs. what was booked</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><ClipboardList className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: ORANGE }} />Dispatch determines: Can this tech handle the actual issue, or is a different trade needed?</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><CheckCircle className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: GREEN }} />If tech <strong className="text-white/70">can</strong> handle it: re-scope the job, update ServiceTitan, proceed</li>
+        </ul>
+      </div>
+
+      {/* Step 2 */}
+      <div className="rounded-xl p-4" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,18%)" }}>
+        <div className="flex items-center gap-2 mb-3">
+          <div className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style={{ background: RED, color: "#fff" }}>2</div>
+          <span className="text-sm font-semibold text-white">CS Calls Customer</span>
+        </div>
+        <div className="rounded-lg p-3 mb-3" style={{ background: `${GREEN}08`, border: `1px solid ${GREEN}15` }}>
+          <p className="text-[10px] uppercase tracking-wider font-bold mb-1.5" style={{ color: GREEN }}>If Tech Can Handle It</p>
+          <p className="text-xs text-white/60 italic leading-relaxed">"Our tech has taken a look and the issue is actually [X] rather than [Y]. The good news is he can take care of it today. The pricing will be [adjusted quote]. Would you like to proceed?"</p>
+        </div>
+        <div className="rounded-lg p-3" style={{ background: `${ORANGE}08`, border: `1px solid ${ORANGE}15` }}>
+          <p className="text-[10px] uppercase tracking-wider font-bold mb-1.5" style={{ color: ORANGE }}>If Different Trade Needed</p>
+          <p className="text-xs text-white/60 italic leading-relaxed">"Our tech found that this is actually a [plumbing/electrical] issue rather than HVAC. We want to get the right specialist out to you — I can schedule that for [next available]. There's no charge for today's visit since we mis-identified the problem."</p>
+        </div>
+      </div>
+
+      {/* Step 3 */}
+      <div className="rounded-xl p-4" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,18%)" }}>
+        <div className="flex items-center gap-2 mb-3">
+          <div className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style={{ background: RED, color: "#fff" }}>3</div>
+          <span className="text-sm font-semibold text-white">Dispatch & Documentation</span>
+        </div>
+        <ul className="space-y-2">
+          <li className="text-xs text-white/60 flex items-start gap-2"><FileText className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: MUTED }} />Update job type and business unit in ServiceTitan</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><ArrowRight className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: WARM }} />If different trade: release tech, book correct specialist, waive diagnostic</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><AlertTriangle className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: RED }} />Tag original booking as "Mis-Booked" — track for CSR training</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><CheckCircle className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: GREEN }} />Review the intake call to identify where the miscommunication occurred</li>
+        </ul>
+      </div>
+    </div>
+
+    {/* Do / Don't */}
+    <div className="grid grid-cols-2 gap-4">
+      <div className="rounded-xl p-3" style={{ background: `${GREEN}08`, border: `1px solid ${GREEN}22` }}>
+        <p className="text-[10px] uppercase tracking-wider font-bold mb-1.5" style={{ color: GREEN }}>Do</p>
+        <ul className="space-y-1">
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: GREEN }} />Waive the diagnostic fee if the mis-book was our fault</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: GREEN }} />Let the tech do as much as they safely can before leaving</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: GREEN }} />Use mis-books as training opportunities — review intake calls weekly</li>
+        </ul>
+      </div>
+      <div className="rounded-xl p-3" style={{ background: `${RED}08`, border: `1px solid ${RED}22` }}>
+        <p className="text-[10px] uppercase tracking-wider font-bold mb-1.5" style={{ color: RED }}>Don't</p>
+        <ul className="space-y-1">
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><AlertTriangle className="w-3 h-3 flex-shrink-0" style={{ color: RED }} />Blame the customer — even if they described the issue wrong, we should have asked better questions</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><AlertTriangle className="w-3 h-3 flex-shrink-0" style={{ color: RED }} />Have the tech attempt work outside their trade — it creates liability</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><AlertTriangle className="w-3 h-3 flex-shrink-0" style={{ color: RED }} />Leave without scheduling the correct follow-up — don't make the customer call back</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+);
+
+/* ── Dispatch Scenario: Mid-Repair Cancellation ── */
+export const MidRepairCancelSlide = () => (
+  <div className="flex flex-col justify-center h-full px-24"
+    style={{ background: "linear-gradient(135deg, hsl(0,0%,6%) 0%, hsl(0,0%,12%) 100%)" }}>
+    <div className="flex items-center gap-3 mb-6">
+      <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: `${RED}18`, border: `1px solid ${RED}33` }}>
+        <X className="w-5 h-5" style={{ color: RED }} />
+      </div>
+      <div>
+        <h2 className="text-3xl font-bold text-white">Mid-Repair Cancellation — Stop-Work Request</h2>
+        <p className="text-sm text-white/50 mt-0.5">Customer wants to cancel after work has already begun</p>
+      </div>
+    </div>
+
+    {/* Why it happens */}
+    <div className="rounded-xl p-4 mb-4" style={{ background: `${ORANGE}08`, border: `1px solid ${ORANGE}15` }}>
+      <p className="text-xs font-bold uppercase tracking-wider mb-2" style={{ color: ORANGE }}>Common Reasons for Mid-Repair Cancellation</p>
+      <div className="grid grid-cols-4 gap-3">
+        {[
+          { icon: DollarSign, label: "Sticker Shock", desc: "Customer approved but regrets the price once work begins" },
+          { icon: Phone, label: "Spouse Overrule", desc: "Partner calls and says to stop — wasn't consulted on the decision" },
+          { icon: HelpCircle, label: "Lost Confidence", desc: "Customer feels unsure about the diagnosis or approach" },
+          { icon: Clock, label: "Time Pressure", desc: "Customer needs to leave and wants to reschedule the remainder" },
+        ].map((item, i) => (
+          <div key={i} className="rounded-lg p-3" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,15%)" }}>
+            <item.icon className="w-4 h-4 mb-2" style={{ color: ORANGE }} />
+            <p className="text-xs font-semibold text-white mb-1">{item.label}</p>
+            <p className="text-[11px] text-white/45">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div className="grid grid-cols-3 gap-4 mb-5">
+      {/* Step 1 */}
+      <div className="rounded-xl p-4" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,18%)" }}>
+        <div className="flex items-center gap-2 mb-3">
+          <div className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style={{ background: RED, color: "#fff" }}>1</div>
+          <span className="text-sm font-semibold text-white">Tech — Pause & Listen</span>
+        </div>
+        <ul className="space-y-2">
+          <li className="text-xs text-white/60 flex items-start gap-2"><AlertTriangle className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: RED }} /><strong className="text-white/70">Stop work immediately</strong> — do not continue once the customer says stop</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><Headphones className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: ORANGE }} />Listen to the reason without being defensive — acknowledge their concern</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><Phone className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: ORANGE }} />Contact dispatch/CS to loop in support — tech should not negotiate billing on-site</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><Shield className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: WARM }} />Ensure the system is left in a <strong className="text-white/70">safe, operational state</strong> — never leave a hazard</li>
+        </ul>
+      </div>
+
+      {/* Step 2 */}
+      <div className="rounded-xl p-4" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,18%)" }}>
+        <div className="flex items-center gap-2 mb-3">
+          <div className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style={{ background: RED, color: "#fff" }}>2</div>
+          <span className="text-sm font-semibold text-white">CS — De-escalate & Resolve</span>
+        </div>
+        <div className="space-y-3">
+          <div className="rounded-lg p-3" style={{ background: `${GREEN}08`, border: `1px solid ${GREEN}15` }}>
+            <p className="text-[10px] uppercase tracking-wider font-bold mb-1.5" style={{ color: GREEN }}>Salvage Script</p>
+            <p className="text-xs text-white/60 italic leading-relaxed">"I understand this is a big decision. Our tech has already [describe progress]. If we stop now, here's where things stand: [explain system state]. Would it help to [break into phases / adjust scope / discuss financing]?"</p>
+          </div>
+          <div className="rounded-lg p-3" style={{ background: `${ORANGE}08`, border: `1px solid ${ORANGE}15` }}>
+            <p className="text-[10px] uppercase tracking-wider font-bold mb-1.5" style={{ color: ORANGE }}>If Customer Insists</p>
+            <p className="text-xs text-white/60 italic leading-relaxed">"Absolutely, we'll have our tech wrap up and make sure everything is safe. You'll only be charged for the work completed so far. We'll leave detailed notes so if you decide to continue later, we can pick up right where we left off."</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Step 3 */}
+      <div className="rounded-xl p-4" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,18%)" }}>
+        <div className="flex items-center gap-2 mb-3">
+          <div className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style={{ background: RED, color: "#fff" }}>3</div>
+          <span className="text-sm font-semibold text-white">Billing & Follow-Up</span>
+        </div>
+        <ul className="space-y-2">
+          <li className="text-xs text-white/60 flex items-start gap-2"><DollarSign className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: GREEN }} />Charge only for <strong className="text-white/70">work completed + parts used</strong> — no full-job billing</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><FileText className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: MUTED }} />Document: work done, work remaining, system state, and reason for cancellation</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><Calendar className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: ORANGE }} />Set a <strong className="text-white/70">3-day follow-up</strong> task — many customers change their mind after cooling off</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><CheckCircle className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: GREEN }} />Tag job as "Partial Complete — Customer Cancelled" for reporting</li>
+        </ul>
+      </div>
+    </div>
+
+    {/* Safety callout */}
+    <div className="rounded-xl p-3 mb-4" style={{ background: `${RED}08`, border: `1px solid ${RED}22` }}>
+      <div className="flex items-center gap-2 mb-1">
+        <Siren className="w-4 h-4" style={{ color: RED }} />
+        <p className="text-xs font-bold uppercase tracking-wider" style={{ color: RED }}>Safety Exception</p>
+      </div>
+      <p className="text-xs text-white/50">If stopping mid-repair would leave the system in an <strong className="text-white/70">unsafe condition</strong> (gas line open, electrical exposed, refrigerant venting), the tech <strong className="text-white/70">must complete the safety-critical portion</strong> regardless of cancellation. Explain this clearly to the customer — it's for their protection.</p>
+    </div>
+
+    {/* Do / Don't */}
+    <div className="grid grid-cols-2 gap-4">
+      <div className="rounded-xl p-3" style={{ background: `${GREEN}08`, border: `1px solid ${GREEN}22` }}>
+        <p className="text-[10px] uppercase tracking-wider font-bold mb-1.5" style={{ color: GREEN }}>Do</p>
+        <ul className="space-y-1">
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: GREEN }} />Stop immediately and listen — the customer has the right to cancel</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: GREEN }} />Leave the system safe and document exactly where you stopped</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: GREEN }} />Follow up in 3 days — many mid-cancel customers return</li>
+        </ul>
+      </div>
+      <div className="rounded-xl p-3" style={{ background: `${RED}08`, border: `1px solid ${RED}22` }}>
+        <p className="text-[10px] uppercase tracking-wider font-bold mb-1.5" style={{ color: RED }}>Don't</p>
+        <ul className="space-y-1">
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><AlertTriangle className="w-3 h-3 flex-shrink-0" style={{ color: RED }} />Argue, pressure, or guilt the customer into continuing</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><AlertTriangle className="w-3 h-3 flex-shrink-0" style={{ color: RED }} />Charge for the full job — only bill for work actually performed</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><AlertTriangle className="w-3 h-3 flex-shrink-0" style={{ color: RED }} />Leave the system in a worse state than when you arrived</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+);
+
+/* ── Export slide list (35 slides: Customer Service & Dispatch Guide) ── */
 export const slides = [
   { title: "Dispatch Guide", component: DispatchTitleSlide, keywords: "cover title homets phone number dispatch guide" },
   { title: "Call Flow / Decision Tree", component: CallFlowSlide, keywords: "call flow decision tree intake answer identify emergency service type book" },
@@ -3739,4 +3951,6 @@ export const slides = [
   { title: "VIP Customer Handling", component: VIPCustomerSlide, keywords: "vip high value priority customer membership property manager referral loyalty white glove retention" },
   { title: "Warranty Callback", component: WarrantyCallbackSlide, keywords: "callback warranty repair failed didn't hold return visit same issue redo no charge quality tracking" },
   { title: "Two-Tech Job", component: TwoTechJobSlide, keywords: "two tech helper assist heavy equipment install rooftop commercial lift safety second technician pair crew" },
+  { title: "Misdiagnosed / Mis-Booked", component: MisbookedJobSlide, keywords: "misdiagnosed mis-booked wrong trade service scope plumbing electrical intake error wrong system type CSR training" },
+  { title: "Mid-Repair Cancellation", component: MidRepairCancelSlide, keywords: "cancel mid repair stop work customer changed mind sticker shock spouse partial billing safety wrap up" },
 ];
