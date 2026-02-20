@@ -2771,7 +2771,116 @@ const SpecificTechRequestSlide = () => (
   </div>
 );
 
-/* ── Export slide list (24 slides: Customer Service & Dispatch Guide) ── */
+/* ── Dispatch Slide 25: Part Not on Truck ── */
+export const PartNotOnTruckSlide = () => (
+  <div className="flex flex-col h-full px-16 py-10" style={{ background: "linear-gradient(135deg, hsl(0,0%,6%) 0%, hsl(0,0%,12%) 100%)" }}>
+    {/* Header */}
+    <div className="flex items-center gap-4 mb-6">
+      <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ background: `${WARM}18`, border: `1px solid ${WARM}30` }}>
+        <Wrench className="w-6 h-6" style={{ color: WARM }} />
+      </div>
+      <div>
+        <h2 className="text-2xl font-bold text-white">Part Not on Truck — Source & Schedule Protocol</h2>
+        <p className="text-sm text-white/50 mt-0.5">When the tech identifies a needed part that isn't in inventory on-site</p>
+      </div>
+    </div>
+
+    {/* Decision tree */}
+    <div className="grid grid-cols-2 gap-5 flex-1">
+      {/* Left: Decision flowchart */}
+      <div className="space-y-4">
+        <div className="rounded-xl p-4" style={{ background: "hsl(0,0%,10%)", border: `1px solid hsl(0,0%,100%,0.08)` }}>
+          <div className="flex items-center gap-2 mb-3">
+            <Search className="w-4 h-4" style={{ color: ORANGE }} />
+            <p className="text-xs font-bold uppercase tracking-wider" style={{ color: ORANGE }}>Step 1 — Tech Checks Availability</p>
+          </div>
+          <ul className="space-y-1.5">
+            <li className="text-xs text-white/60 flex items-center gap-2"><ChevronRight className="w-3 h-3 flex-shrink-0" style={{ color: ORANGE }} />Check supply house stock (call or app)</li>
+            <li className="text-xs text-white/60 flex items-center gap-2"><ChevronRight className="w-3 h-3 flex-shrink-0" style={{ color: ORANGE }} />Check if another tech on the road has the part</li>
+            <li className="text-xs text-white/60 flex items-center gap-2"><ChevronRight className="w-3 h-3 flex-shrink-0" style={{ color: ORANGE }} />Report to dispatch: part #, ETA to obtain, and remaining board</li>
+          </ul>
+        </div>
+
+        <div className="rounded-xl p-4" style={{ background: "hsl(0,0%,10%)", border: `1px solid hsl(0,0%,100%,0.08)` }}>
+          <div className="flex items-center gap-2 mb-3">
+            <ArrowRight className="w-4 h-4" style={{ color: WARM }} />
+            <p className="text-xs font-bold uppercase tracking-wider" style={{ color: WARM }}>Step 2 — Dispatch Decides Path</p>
+          </div>
+          <div className="space-y-3">
+            {[
+              { label: "Option A: Leave & Return Same Day", desc: "Supply house < 30 min away, no remaining jobs at risk. Tech picks up part and returns.", tag: "Best for", tagColor: GREEN },
+              { label: "Option B: Continue Board, Return Later", desc: "Tech completes next jobs, picks up part en route, returns to finish. Ideal if customer is flexible.", tag: "Efficient", tagColor: ORANGE },
+              { label: "Option C: Order & Reschedule", desc: "Part must be ordered (1–3 days). Schedule return trip. No charge for second visit.", tag: "Special order", tagColor: RED },
+            ].map((opt, idx) => (
+              <div key={idx} className="rounded-lg p-3" style={{ background: "hsl(0,0%,8%)", border: `1px solid hsl(0,0%,100%,0.05)` }}>
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="text-[9px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style={{ background: `${opt.tagColor}18`, color: opt.tagColor }}>{opt.tag}</span>
+                  <p className="text-xs font-semibold text-white">{opt.label}</p>
+                </div>
+                <p className="text-[11px] text-white/45 ml-0.5">{opt.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Right: CS Scripts & documentation */}
+      <div className="space-y-4">
+        <div className="rounded-xl p-4" style={{ background: "hsl(0,0%,10%)", border: `1px solid hsl(0,0%,100%,0.08)` }}>
+          <div className="flex items-center gap-2 mb-3">
+            <Phone className="w-4 h-4" style={{ color: GREEN }} />
+            <p className="text-xs font-bold uppercase tracking-wider" style={{ color: GREEN }}>Step 3 — CS Calls Customer</p>
+          </div>
+          <div className="space-y-3">
+            <div className="rounded-lg p-3" style={{ background: `${GREEN}08`, border: `1px solid ${GREEN}15` }}>
+              <p className="text-[10px] uppercase tracking-wider font-bold mb-1.5" style={{ color: GREEN }}>Same-Day Return Script</p>
+              <p className="text-xs text-white/60 italic leading-relaxed">"Our tech has diagnosed the issue and needs a specific part to complete the repair properly. He's heading to pick it up now and will be back by [ETA]. There's no additional trip charge — we want to make sure it's done right."</p>
+            </div>
+            <div className="rounded-lg p-3" style={{ background: `${ORANGE}08`, border: `1px solid ${ORANGE}15` }}>
+              <p className="text-[10px] uppercase tracking-wider font-bold mb-1.5" style={{ color: ORANGE }}>Order & Reschedule Script</p>
+              <p className="text-xs text-white/60 italic leading-relaxed">"The part your system needs has to be ordered from the manufacturer. We'll have it in [1–3 days] and will schedule your follow-up visit right now — no additional diagnostic fee. What day works best for you?"</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="rounded-xl p-4" style={{ background: "hsl(0,0%,10%)", border: `1px solid hsl(0,0%,100%,0.08)` }}>
+          <div className="flex items-center gap-2 mb-3">
+            <FileText className="w-4 h-4" style={{ color: MUTED }} />
+            <p className="text-xs font-bold uppercase tracking-wider" style={{ color: MUTED }}>Step 4 — Document in ServiceTitan</p>
+          </div>
+          <ul className="space-y-1.5">
+            <li className="text-xs text-white/60 flex items-center gap-2"><CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: GREEN }} />Log part number, source, and expected delivery date</li>
+            <li className="text-xs text-white/60 flex items-center gap-2"><CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: GREEN }} />Tag job as "Return Trip — Part Needed" for tracking</li>
+            <li className="text-xs text-white/60 flex items-center gap-2"><CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: GREEN }} />Schedule follow-up before leaving customer's home</li>
+            <li className="text-xs text-white/60 flex items-center gap-2"><CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: GREEN }} />Confirm with customer: return date, time window, and tech name</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    {/* Do / Don't */}
+    <div className="grid grid-cols-2 gap-4 mt-4">
+      <div className="rounded-xl p-3" style={{ background: `${GREEN}08`, border: `1px solid ${GREEN}22` }}>
+        <p className="text-[10px] uppercase tracking-wider font-bold mb-1.5" style={{ color: GREEN }}>Do</p>
+        <ul className="space-y-1">
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: GREEN }} />Waive the second trip fee — the customer shouldn't pay twice</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: GREEN }} />Give a firm return ETA window, not "we'll call you"</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: GREEN }} />Have tech complete as much prep work as possible before leaving</li>
+        </ul>
+      </div>
+      <div className="rounded-xl p-3" style={{ background: `${RED}08`, border: `1px solid ${RED}22` }}>
+        <p className="text-[10px] uppercase tracking-wider font-bold mb-1.5" style={{ color: RED }}>Don't</p>
+        <ul className="space-y-1">
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><AlertTriangle className="w-3 h-3 flex-shrink-0" style={{ color: RED }} />Leave without explaining exactly what's needed and why</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><AlertTriangle className="w-3 h-3 flex-shrink-0" style={{ color: RED }} />Promise a return time you can't keep — always pad the estimate</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><AlertTriangle className="w-3 h-3 flex-shrink-0" style={{ color: RED }} />Skip documenting — the return trip must be tracked for reporting</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+);
+
+/* ── Export slide list (25 slides: Customer Service & Dispatch Guide) ── */
 export const slides = [
   { title: "Dispatch Guide", component: DispatchTitleSlide, keywords: "cover title homets phone number dispatch guide" },
   { title: "Call Flow / Decision Tree", component: CallFlowSlide, keywords: "call flow decision tree intake answer identify emergency service type book" },
@@ -2797,4 +2906,5 @@ export const slides = [
   { title: "Multiple Emergencies", component: MultipleEmergenciesSlide, keywords: "multiple emergencies triage surge priority p1 p2 p3 p4 gas leak safety dispatch all techs backup" },
   { title: "Scope Escalation", component: ScopeEscalationSlide, keywords: "scope escalation larger than expected replacement repair diagnostic advisor comfort system upgrade convert job" },
   { title: "Specific Tech Request", component: SpecificTechRequestSlide, keywords: "specific tech request customer preference booked full schedule accommodate redirect waitlist loyalty" },
+  { title: "Part Not on Truck", component: PartNotOnTruckSlide, keywords: "part not on truck supply house order return trip special order inventory leave come back reschedule" },
 ];
