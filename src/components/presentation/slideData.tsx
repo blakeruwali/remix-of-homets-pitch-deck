@@ -4314,7 +4314,117 @@ export const ManufacturerWarrantySlide = () => (
   </div>
 );
 
-/* ── Export slide list (39 slides: Customer Service & Dispatch Guide) ── */
+/* ── Dispatch Scenario: Outstanding Balance ── */
+export const OutstandingBalanceSlide = () => (
+  <div className="flex flex-col justify-center h-full px-24"
+    style={{ background: "linear-gradient(135deg, hsl(0,0%,6%) 0%, hsl(0,0%,12%) 100%)" }}>
+    <div className="flex items-center gap-3 mb-6">
+      <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: `${ORANGE}18`, border: `1px solid ${ORANGE}33` }}>
+        <DollarSign className="w-5 h-5" style={{ color: ORANGE }} />
+      </div>
+      <div>
+        <h2 className="text-3xl font-bold text-white">Outstanding Balance — Service with Unpaid Account</h2>
+        <p className="text-sm text-white/50 mt-0.5">Customer requests new service but has an unpaid balance from a previous job</p>
+      </div>
+    </div>
+
+    {/* Decision matrix */}
+    <div className="rounded-xl p-4 mb-4" style={{ background: `${ORANGE}08`, border: `1px solid ${ORANGE}15` }}>
+      <p className="text-xs font-bold uppercase tracking-wider mb-2" style={{ color: ORANGE }}>Balance Tiers & Response</p>
+      <div className="grid grid-cols-3 gap-3">
+        {[
+          { level: "< 30 Days Past Due", color: GREEN, action: "Schedule normally — mention the balance and offer to collect at next visit", policy: "Standard service" },
+          { level: "30–90 Days Past Due", color: ORANGE, action: "Schedule with manager approval — require payment of past balance before or at time of new service", policy: "Collect before dispatch" },
+          { level: "90+ Days / Collections", color: RED, action: "Escalate to manager — do not schedule without explicit approval and payment plan", policy: "Manager approval only" },
+        ].map((item, i) => (
+          <div key={i} className="rounded-lg p-3" style={{ background: `${item.color}08`, border: `1px solid ${item.color}15` }}>
+            <p className="text-xs font-bold mb-1" style={{ color: item.color }}>{item.level}</p>
+            <p className="text-[11px] text-white/50 mb-2">{item.action}</p>
+            <span className="text-[9px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full" style={{ background: `${item.color}18`, color: item.color }}>{item.policy}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div className="grid grid-cols-3 gap-4 mb-5">
+      {/* Step 1 */}
+      <div className="rounded-xl p-4" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,18%)" }}>
+        <div className="flex items-center gap-2 mb-3">
+          <div className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style={{ background: ORANGE, color: "#fff" }}>1</div>
+          <span className="text-sm font-semibold text-white">Intake — Check & Flag</span>
+        </div>
+        <ul className="space-y-2">
+          <li className="text-xs text-white/60 flex items-start gap-2"><Search className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: ORANGE }} />Check ServiceTitan for open invoices <strong className="text-white/70">before confirming</strong> the appointment</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><AlertTriangle className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: RED }} />If a balance exists: note the amount, age, and any prior payment attempts</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><Phone className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: ORANGE }} />Do <strong className="text-white/70">not</strong> refuse service on the first call — always be professional and solution-oriented</li>
+        </ul>
+      </div>
+
+      {/* Step 2 */}
+      <div className="rounded-xl p-4" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,18%)" }}>
+        <div className="flex items-center gap-2 mb-3">
+          <div className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style={{ background: ORANGE, color: "#fff" }}>2</div>
+          <span className="text-sm font-semibold text-white">CS — Address the Balance</span>
+        </div>
+        <div className="space-y-3">
+          <div className="rounded-lg p-3" style={{ background: `${GREEN}08`, border: `1px solid ${GREEN}15` }}>
+            <p className="text-[10px] uppercase tracking-wider font-bold mb-1.5" style={{ color: GREEN }}>Balance Script</p>
+            <p className="text-xs text-white/60 italic leading-relaxed">"I'd be happy to get that scheduled for you. I do see there's an open balance of [amount] from [date/job]. We can take care of that over the phone right now, or we can collect it when the tech arrives along with today's service. Which works better for you?"</p>
+          </div>
+          <div className="rounded-lg p-3" style={{ background: `${ORANGE}08`, border: `1px solid ${ORANGE}15` }}>
+            <p className="text-[10px] uppercase tracking-wider font-bold mb-1.5" style={{ color: ORANGE }}>If Customer Disputes the Balance</p>
+            <p className="text-xs text-white/60 italic leading-relaxed">"I understand — let me pull up the details so we can review it together. If there's a billing error we'll absolutely correct it. In the meantime, I can still get your new service scheduled."</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Step 3 */}
+      <div className="rounded-xl p-4" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,18%)" }}>
+        <div className="flex items-center gap-2 mb-3">
+          <div className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style={{ background: ORANGE, color: "#fff" }}>3</div>
+          <span className="text-sm font-semibold text-white">Dispatch & Collection</span>
+        </div>
+        <ul className="space-y-2">
+          <li className="text-xs text-white/60 flex items-start gap-2"><FileText className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: MUTED }} />Add a <strong className="text-white/70">dispatch note</strong>: "Open balance of $X — collect at visit"</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><User className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: ORANGE }} />Brief the tech: mention the balance so they're prepared, but their job is service — not collections</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><DollarSign className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: GREEN }} />Tech collects payment for <strong className="text-white/70">both</strong> the old balance and new service at checkout</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><Calendar className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: ORANGE }} />If balance still unpaid after visit: escalate to office manager for formal follow-up</li>
+        </ul>
+      </div>
+    </div>
+
+    {/* Safety exception */}
+    <div className="rounded-xl p-3 mb-4" style={{ background: `${RED}08`, border: `1px solid ${RED}22` }}>
+      <div className="flex items-center gap-2 mb-1">
+        <Siren className="w-4 h-4" style={{ color: RED }} />
+        <p className="text-xs font-bold uppercase tracking-wider" style={{ color: RED }}>Safety Exception</p>
+      </div>
+      <p className="text-xs text-white/50"><strong className="text-white/70">Never refuse service for a safety emergency</strong> (gas leak, no heat in winter, CO alarm) regardless of account status. Handle the emergency first, address the balance after. Document the exception for management.</p>
+    </div>
+
+    {/* Do / Don't */}
+    <div className="grid grid-cols-2 gap-4">
+      <div className="rounded-xl p-3" style={{ background: `${GREEN}08`, border: `1px solid ${GREEN}22` }}>
+        <p className="text-[10px] uppercase tracking-wider font-bold mb-1.5" style={{ color: GREEN }}>Do</p>
+        <ul className="space-y-1">
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: GREEN }} />Be matter-of-fact about the balance — no judgment, no awkwardness</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: GREEN }} />Offer payment plan options for large balances — keep the customer, collect over time</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: GREEN }} />Always service safety emergencies regardless of account status</li>
+        </ul>
+      </div>
+      <div className="rounded-xl p-3" style={{ background: `${RED}08`, border: `1px solid ${RED}22` }}>
+        <p className="text-[10px] uppercase tracking-wider font-bold mb-1.5" style={{ color: RED }}>Don't</p>
+        <ul className="space-y-1">
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><AlertTriangle className="w-3 h-3 flex-shrink-0" style={{ color: RED }} />Shame or embarrass the customer — they may have a legitimate dispute or hardship</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><AlertTriangle className="w-3 h-3 flex-shrink-0" style={{ color: RED }} />Have the tech play debt collector — that's an office/CS responsibility</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><AlertTriangle className="w-3 h-3 flex-shrink-0" style={{ color: RED }} />Refuse a safety call over money — it's a liability and ethical issue</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+);
+
+/* ── Export slide list (40 slides: Customer Service & Dispatch Guide) ── */
 export const slides = [
   { title: "Dispatch Guide", component: DispatchTitleSlide, keywords: "cover title homets phone number dispatch guide" },
   { title: "Call Flow / Decision Tree", component: CallFlowSlide, keywords: "call flow decision tree intake answer identify emergency service type book" },
@@ -4355,4 +4465,5 @@ export const slides = [
   { title: "Tech Complaint", component: TechComplaintSlide, keywords: "tech complaint behavior attitude rude reassign different technician conduct harassment write-up coaching customer experience" },
   { title: "Maintenance Upsell", component: MaintenanceUpsellSlide, keywords: "maintenance upsell tune-up found issue additional repair recommend photos educate sell without pressure member discount" },
   { title: "Manufacturer Warranty", component: ManufacturerWarrantySlide, keywords: "manufacturer warranty parts authorization covered labor serial number registration portal dealer claim order OEM" },
+  { title: "Outstanding Balance", component: OutstandingBalanceSlide, keywords: "outstanding balance unpaid invoice past due collections owe money account hold payment plan overdue billing dispute" },
 ];
