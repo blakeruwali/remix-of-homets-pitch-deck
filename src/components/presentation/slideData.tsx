@@ -3515,7 +3515,196 @@ export const VIPCustomerSlide = () => (
   </div>
 );
 
-/* ── Export slide list (31 slides: Customer Service & Dispatch Guide) ── */
+/* ── Dispatch Scenario: Warranty Callback ── */
+export const WarrantyCallbackSlide = () => (
+  <div className="flex flex-col justify-center h-full px-24"
+    style={{ background: "linear-gradient(135deg, hsl(0,0%,6%) 0%, hsl(0,0%,12%) 100%)" }}>
+    <div className="flex items-center gap-3 mb-6">
+      <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: `${ORANGE}18`, border: `1px solid ${ORANGE}33` }}>
+        <Repeat className="w-5 h-5" style={{ color: ORANGE }} />
+      </div>
+      <div>
+        <h2 className="text-3xl font-bold text-white">Warranty Callback — Repair Didn't Hold</h2>
+        <p className="text-sm text-white/50 mt-0.5">Customer calls back within warranty period for the same issue</p>
+      </div>
+    </div>
+
+    <div className="grid grid-cols-3 gap-4 mb-5">
+      {/* Step 1 */}
+      <div className="rounded-xl p-4" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,18%)" }}>
+        <div className="flex items-center gap-2 mb-3">
+          <div className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style={{ background: ORANGE, color: "#fff" }}>1</div>
+          <span className="text-sm font-semibold text-white">Intake — Verify & Empathize</span>
+        </div>
+        <ul className="space-y-2">
+          <li className="text-xs text-white/60 flex items-start gap-2"><Search className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: ORANGE }} />Pull up original job in ServiceTitan — confirm repair date, work performed, and warranty window</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><Phone className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: ORANGE }} />Acknowledge frustration: <em className="text-white/70">"I completely understand — that shouldn't have happened, and we're going to make it right."</em></li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><CheckCircle className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: GREEN }} />Confirm it's the <strong className="text-white/70">same issue</strong>, not a new/different problem</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><Clock className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: WARM }} />If within warranty: no charge. If borderline: escalate to manager before quoting</li>
+        </ul>
+      </div>
+
+      {/* Step 2 */}
+      <div className="rounded-xl p-4" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,18%)" }}>
+        <div className="flex items-center gap-2 mb-3">
+          <div className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style={{ background: ORANGE, color: "#fff" }}>2</div>
+          <span className="text-sm font-semibold text-white">Dispatch — Priority Scheduling</span>
+        </div>
+        <ul className="space-y-2">
+          <li className="text-xs text-white/60 flex items-start gap-2"><Calendar className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: ORANGE }} /><strong className="text-white/70">Priority booking</strong> — callbacks go ahead of standard diagnostics</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><User className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: ORANGE }} />Assign the <strong className="text-white/70">original tech</strong> if available — they know the system and repair history</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><ArrowRight className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: WARM }} />If original tech unavailable: assign a senior tech and share all notes from the first visit</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><Clock className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: WARM }} />Target <strong className="text-white/70">same-day or next-day</strong> — the customer has already waited once</li>
+        </ul>
+      </div>
+
+      {/* Step 3 */}
+      <div className="rounded-xl p-4" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,18%)" }}>
+        <div className="flex items-center gap-2 mb-3">
+          <div className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style={{ background: ORANGE, color: "#fff" }}>3</div>
+          <span className="text-sm font-semibold text-white">After Service — Recover Trust</span>
+        </div>
+        <ul className="space-y-2">
+          <li className="text-xs text-white/60 flex items-start gap-2"><Phone className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: GREEN }} />CS follow-up call within 24 hours to confirm the issue is resolved</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><FileText className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: MUTED }} />Log root cause: was it a bad part, incorrect install, or different underlying issue?</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><HandCoins className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: WARM }} />Consider a goodwill gesture: discount on next service, free filter, or membership offer</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><CheckCircle className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: GREEN }} />Flag in ServiceTitan as "Callback — Resolved" for quality tracking</li>
+        </ul>
+      </div>
+    </div>
+
+    {/* Callback Script */}
+    <div className="rounded-xl p-4 mb-4" style={{ background: `${ORANGE}08`, border: `1px solid ${ORANGE}15` }}>
+      <div className="flex items-center gap-2 mb-2">
+        <Phone className="w-4 h-4" style={{ color: ORANGE }} />
+        <p className="text-xs font-bold uppercase tracking-wider" style={{ color: ORANGE }}>Warranty Callback Script</p>
+      </div>
+      <p className="text-xs text-white/60 italic leading-relaxed">"I'm sorry to hear the issue came back — that's not the experience we want for you. I can see the original repair was done on [date] and it's within our warranty period, so there will be no charge for this visit. Let me get a tech back out to you as soon as possible. Would [today/tomorrow] work for you?"</p>
+    </div>
+
+    {/* Do / Don't */}
+    <div className="grid grid-cols-2 gap-4">
+      <div className="rounded-xl p-3" style={{ background: `${GREEN}08`, border: `1px solid ${GREEN}22` }}>
+        <p className="text-[10px] uppercase tracking-wider font-bold mb-1.5" style={{ color: GREEN }}>Do</p>
+        <ul className="space-y-1">
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: GREEN }} />Own the mistake — never blame the customer or suggest user error first</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: GREEN }} />Prioritize the callback above routine work — they've already been inconvenienced</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: GREEN }} />Track callbacks per tech for quality improvement and training</li>
+        </ul>
+      </div>
+      <div className="rounded-xl p-3" style={{ background: `${RED}08`, border: `1px solid ${RED}22` }}>
+        <p className="text-[10px] uppercase tracking-wider font-bold mb-1.5" style={{ color: RED }}>Don't</p>
+        <ul className="space-y-1">
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><AlertTriangle className="w-3 h-3 flex-shrink-0" style={{ color: RED }} />Charge the customer for a warranty callback — even if the root cause differs slightly</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><AlertTriangle className="w-3 h-3 flex-shrink-0" style={{ color: RED }} />Send a different tech without sharing the original job notes</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><AlertTriangle className="w-3 h-3 flex-shrink-0" style={{ color: RED }} />Treat it as a routine call — speed and accountability matter here</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+);
+
+/* ── Dispatch Scenario: Two-Tech Job ── */
+export const TwoTechJobSlide = () => (
+  <div className="flex flex-col justify-center h-full px-24"
+    style={{ background: "linear-gradient(135deg, hsl(0,0%,6%) 0%, hsl(0,0%,12%) 100%)" }}>
+    <div className="flex items-center gap-3 mb-6">
+      <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: `${WARM}18`, border: `1px solid ${WARM}33` }}>
+        <Users className="w-5 h-5" style={{ color: WARM }} />
+      </div>
+      <div>
+        <h2 className="text-3xl font-bold text-white">Two-Tech Job — Heavy Assist Protocol</h2>
+        <p className="text-sm text-white/50 mt-0.5">When a job requires two technicians (installs, heavy equipment, rooftop units)</p>
+      </div>
+    </div>
+
+    {/* When to send two techs */}
+    <div className="rounded-xl p-4 mb-4" style={{ background: `${WARM}08`, border: `1px solid ${WARM}15` }}>
+      <p className="text-xs font-bold uppercase tracking-wider mb-2" style={{ color: WARM }}>When Is a Two-Tech Job Required?</p>
+      <div className="grid grid-cols-4 gap-3">
+        {[
+          { icon: Wrench, label: "Heavy Equipment", desc: "Rooftop units, commercial compressors, boiler installs (80+ lbs)" },
+          { icon: Zap, label: "Electrical + Mechanical", desc: "Panel upgrades with unit swap — two skillsets needed simultaneously" },
+          { icon: Building, label: "Confined / Complex Access", desc: "Tight crawl spaces, attic installs requiring spotter for safety" },
+          { icon: Timer, label: "Time-Critical Install", desc: "Full system changeout that must be completed same day" },
+        ].map((item, i) => (
+          <div key={i} className="rounded-lg p-3" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,15%)" }}>
+            <item.icon className="w-4 h-4 mb-2" style={{ color: WARM }} />
+            <p className="text-xs font-semibold text-white mb-1">{item.label}</p>
+            <p className="text-[11px] text-white/45">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    {/* 3-step protocol */}
+    <div className="grid grid-cols-3 gap-4 mb-5">
+      {/* Step 1 */}
+      <div className="rounded-xl p-4" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,18%)" }}>
+        <div className="flex items-center gap-2 mb-3">
+          <div className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style={{ background: WARM, color: "#fff" }}>1</div>
+          <span className="text-sm font-semibold text-white">Pre-Dispatch Planning</span>
+        </div>
+        <ul className="space-y-2">
+          <li className="text-xs text-white/60 flex items-start gap-2"><ClipboardList className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: WARM }} />Identify two-tech need at booking: check job type, equipment weight, and access notes</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><User className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: ORANGE }} />Assign a <strong className="text-white/70">lead tech</strong> (owns the job) and a <strong className="text-white/70">helper</strong> (support role)</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><Calendar className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: ORANGE }} />Block matching time windows for both techs — helper may only be needed for 2–3 hours</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><MapPin className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: WARM }} />Stage both techs to arrive simultaneously — stagger only if helper joins mid-job</li>
+        </ul>
+      </div>
+
+      {/* Step 2 */}
+      <div className="rounded-xl p-4" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,18%)" }}>
+        <div className="flex items-center gap-2 mb-3">
+          <div className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style={{ background: WARM, color: "#fff" }}>2</div>
+          <span className="text-sm font-semibold text-white">Day-Of Coordination</span>
+        </div>
+        <ul className="space-y-2">
+          <li className="text-xs text-white/60 flex items-start gap-2"><Phone className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: GREEN }} />Dispatch confirms both techs are on track — check ETAs 30 min before arrival window</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><AlertTriangle className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: RED }} />If helper is delayed: notify lead tech and customer immediately with new ETA</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><ArrowRight className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: WARM }} />If helper cancels: pull from closest available tech or reschedule if safety requires two</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><Clock className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: ORANGE }} />Release helper as soon as heavy-lift portion is complete — return them to their board</li>
+        </ul>
+      </div>
+
+      {/* Step 3 */}
+      <div className="rounded-xl p-4" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,18%)" }}>
+        <div className="flex items-center gap-2 mb-3">
+          <div className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style={{ background: WARM, color: "#fff" }}>3</div>
+          <span className="text-sm font-semibold text-white">Billing & Documentation</span>
+        </div>
+        <ul className="space-y-2">
+          <li className="text-xs text-white/60 flex items-start gap-2"><FileText className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: MUTED }} />Both techs log hours in ServiceTitan under the same job</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><DollarSign className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: GREEN }} />Customer is billed for the job, <strong className="text-white/70">not per-tech</strong> — helper cost is internal overhead</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><CheckCircle className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: GREEN }} />Tag job as "Two-Tech" in ServiceTitan for capacity planning reports</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><ClipboardList className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: MUTED }} />Note helper's actual hours for payroll and efficiency tracking</li>
+        </ul>
+      </div>
+    </div>
+
+    {/* Do / Don't */}
+    <div className="grid grid-cols-2 gap-4">
+      <div className="rounded-xl p-3" style={{ background: `${GREEN}08`, border: `1px solid ${GREEN}22` }}>
+        <p className="text-[10px] uppercase tracking-wider font-bold mb-1.5" style={{ color: GREEN }}>Do</p>
+        <ul className="space-y-1">
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: GREEN }} />Plan two-tech jobs at booking — don't discover the need on-site</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: GREEN }} />Release the helper ASAP — every hour they're assisting is an hour off their own board</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: GREEN }} />Communicate to the customer that two techs = faster completion, not a bigger problem</li>
+        </ul>
+      </div>
+      <div className="rounded-xl p-3" style={{ background: `${RED}08`, border: `1px solid ${RED}22` }}>
+        <p className="text-[10px] uppercase tracking-wider font-bold mb-1.5" style={{ color: RED }}>Don't</p>
+        <ul className="space-y-1">
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><AlertTriangle className="w-3 h-3 flex-shrink-0" style={{ color: RED }} />Send a single tech to a job that requires two — it's a safety and liability risk</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><AlertTriangle className="w-3 h-3 flex-shrink-0" style={{ color: RED }} />Let the helper sit idle — if they're not needed yet, keep them on their board</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><AlertTriangle className="w-3 h-3 flex-shrink-0" style={{ color: RED }} />Charge the customer extra for a second tech — that's an operational cost, not a customer cost</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+);
+
+/* ── Export slide list (33 slides: Customer Service & Dispatch Guide) ── */
 export const slides = [
   { title: "Dispatch Guide", component: DispatchTitleSlide, keywords: "cover title homets phone number dispatch guide" },
   { title: "Call Flow / Decision Tree", component: CallFlowSlide, keywords: "call flow decision tree intake answer identify emergency service type book" },
@@ -3548,4 +3737,6 @@ export const slides = [
   { title: "Customer Disputes Diagnostic", component: CustomerDisputeSlide, keywords: "dispute disagree refuse decline diagnostic findings second opinion argument objection safety waiver follow up" },
   { title: "Unrelated Safety Hazard", component: UnrelatedSafetyHazardSlide, keywords: "safety hazard carbon monoxide CO gas leak electrical mold unrelated discovery found during tune-up maintenance" },
   { title: "VIP Customer Handling", component: VIPCustomerSlide, keywords: "vip high value priority customer membership property manager referral loyalty white glove retention" },
+  { title: "Warranty Callback", component: WarrantyCallbackSlide, keywords: "callback warranty repair failed didn't hold return visit same issue redo no charge quality tracking" },
+  { title: "Two-Tech Job", component: TwoTechJobSlide, keywords: "two tech helper assist heavy equipment install rooftop commercial lift safety second technician pair crew" },
 ];
