@@ -3916,7 +3916,203 @@ export const MidRepairCancelSlide = () => (
   </div>
 );
 
-/* ── Export slide list (35 slides: Customer Service & Dispatch Guide) ── */
+/* ── Dispatch Scenario: Locked / Gated Access ── */
+export const LockedAccessSlide = () => (
+  <div className="flex flex-col justify-center h-full px-24"
+    style={{ background: "linear-gradient(135deg, hsl(0,0%,6%) 0%, hsl(0,0%,12%) 100%)" }}>
+    <div className="flex items-center gap-3 mb-6">
+      <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: `${ORANGE}18`, border: `1px solid ${ORANGE}33` }}>
+        <ShieldAlert className="w-5 h-5" style={{ color: ORANGE }} />
+      </div>
+      <div>
+        <h2 className="text-3xl font-bold text-white">Locked / Gated Access — Entry Denied</h2>
+        <p className="text-sm text-white/50 mt-0.5">Tech can't reach the equipment due to locked gate, roof hatch, mechanical room, or HOA restriction</p>
+      </div>
+    </div>
+
+    {/* Common scenarios */}
+    <div className="rounded-xl p-4 mb-4" style={{ background: `${ORANGE}08`, border: `1px solid ${ORANGE}15` }}>
+      <p className="text-xs font-bold uppercase tracking-wider mb-2" style={{ color: ORANGE }}>Common Access Barriers</p>
+      <div className="grid grid-cols-4 gap-3">
+        {[
+          { icon: Building, label: "Gated Community", desc: "Guard gate or key fob required — no visitor code provided" },
+          { icon: Home, label: "Locked Mech. Room", desc: "Boiler/utility room locked by building management" },
+          { icon: MapPin, label: "Roof Access", desc: "Rooftop unit behind locked hatch — need building super" },
+          { icon: Shield, label: "HOA Restriction", desc: "HOA requires pre-approval or escort for contractor access" },
+        ].map((item, i) => (
+          <div key={i} className="rounded-lg p-3" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,15%)" }}>
+            <item.icon className="w-4 h-4 mb-2" style={{ color: ORANGE }} />
+            <p className="text-xs font-semibold text-white mb-1">{item.label}</p>
+            <p className="text-[11px] text-white/45">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div className="grid grid-cols-3 gap-4 mb-5">
+      {/* Step 1 */}
+      <div className="rounded-xl p-4" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,18%)" }}>
+        <div className="flex items-center gap-2 mb-3">
+          <div className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style={{ background: ORANGE, color: "#fff" }}>1</div>
+          <span className="text-sm font-semibold text-white">Tech — Attempt & Report</span>
+        </div>
+        <ul className="space-y-2">
+          <li className="text-xs text-white/60 flex items-start gap-2"><Phone className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: ORANGE }} />Call the customer directly — they may be able to buzz in, provide a code, or meet the tech</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><Clock className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: WARM }} />Wait <strong className="text-white/70">max 15 minutes</strong> while dispatch works the problem</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><AlertTriangle className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: RED }} /><strong className="text-white/70">Never</strong> force entry, climb fences, or bypass security — liability risk</li>
+        </ul>
+      </div>
+
+      {/* Step 2 */}
+      <div className="rounded-xl p-4" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,18%)" }}>
+        <div className="flex items-center gap-2 mb-3">
+          <div className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style={{ background: ORANGE, color: "#fff" }}>2</div>
+          <span className="text-sm font-semibold text-white">CS — Contact Chain</span>
+        </div>
+        <ul className="space-y-2">
+          <li className="text-xs text-white/60 flex items-start gap-2"><User className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: ORANGE }} /><strong className="text-white/70">Contact 1:</strong> Customer — can they call the property manager or provide a code?</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><Building className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: ORANGE }} /><strong className="text-white/70">Contact 2:</strong> Property manager / super — check ServiceTitan notes for their number</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><Phone className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: WARM }} /><strong className="text-white/70">Contact 3:</strong> HOA office / management company front desk</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><ArrowRight className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: RED }} />If no one responds within 15 min: release tech, reschedule with access confirmed</li>
+        </ul>
+      </div>
+
+      {/* Step 3 */}
+      <div className="rounded-xl p-4" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,18%)" }}>
+        <div className="flex items-center gap-2 mb-3">
+          <div className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style={{ background: ORANGE, color: "#fff" }}>3</div>
+          <span className="text-sm font-semibold text-white">Reschedule & Prevent</span>
+        </div>
+        <ul className="space-y-2">
+          <li className="text-xs text-white/60 flex items-start gap-2"><Calendar className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: ORANGE }} />Rebook with <strong className="text-white/70">confirmed access instructions</strong> in job notes</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><FileText className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: MUTED }} />Add gate code, key location, or contact person to the customer profile permanently</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><Phone className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: GREEN }} />Day-before confirmation call should include: "Will we need any special access codes or keys?"</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><CheckCircle className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: GREEN }} />No charge for the failed visit — this was a scheduling oversight</li>
+        </ul>
+      </div>
+    </div>
+
+    {/* Do / Don't */}
+    <div className="grid grid-cols-2 gap-4">
+      <div className="rounded-xl p-3" style={{ background: `${GREEN}08`, border: `1px solid ${GREEN}22` }}>
+        <p className="text-[10px] uppercase tracking-wider font-bold mb-1.5" style={{ color: GREEN }}>Do</p>
+        <ul className="space-y-1">
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: GREEN }} />Ask about access requirements at booking — especially for condos, gated communities, and commercial</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: GREEN }} />Save access info permanently in ServiceTitan so it's available for future visits</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: GREEN }} />Release the tech after 15 min — don't waste a full time slot waiting</li>
+        </ul>
+      </div>
+      <div className="rounded-xl p-3" style={{ background: `${RED}08`, border: `1px solid ${RED}22` }}>
+        <p className="text-[10px] uppercase tracking-wider font-bold mb-1.5" style={{ color: RED }}>Don't</p>
+        <ul className="space-y-1">
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><AlertTriangle className="w-3 h-3 flex-shrink-0" style={{ color: RED }} />Force entry, tailgate, or bypass security — it's trespassing and a liability nightmare</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><AlertTriangle className="w-3 h-3 flex-shrink-0" style={{ color: RED }} />Charge the customer for the failed visit if access info was never collected at booking</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><AlertTriangle className="w-3 h-3 flex-shrink-0" style={{ color: RED }} />Rebook without confirming access — you'll just repeat the same problem</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+);
+
+/* ── Dispatch Scenario: Tech Complaint / Behavior ── */
+export const TechComplaintSlide = () => (
+  <div className="flex flex-col justify-center h-full px-24"
+    style={{ background: "linear-gradient(135deg, hsl(0,0%,6%) 0%, hsl(0,0%,12%) 100%)" }}>
+    <div className="flex items-center gap-3 mb-6">
+      <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: `${RED}18`, border: `1px solid ${RED}33` }}>
+        <AlertOctagon className="w-5 h-5" style={{ color: RED }} />
+      </div>
+      <div>
+        <h2 className="text-3xl font-bold text-white">Tech Complaint — Behavior & Reassignment</h2>
+        <p className="text-sm text-white/50 mt-0.5">Customer complains about a previous tech's attitude or conduct and requests someone different</p>
+      </div>
+    </div>
+
+    <div className="grid grid-cols-3 gap-4 mb-5">
+      {/* Step 1 */}
+      <div className="rounded-xl p-4" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,18%)" }}>
+        <div className="flex items-center gap-2 mb-3">
+          <div className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style={{ background: RED, color: "#fff" }}>1</div>
+          <span className="text-sm font-semibold text-white">Listen & Document</span>
+        </div>
+        <ul className="space-y-2">
+          <li className="text-xs text-white/60 flex items-start gap-2"><Headphones className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: RED }} />Let the customer fully explain — don't interrupt, minimize, or make excuses</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><FileText className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: MUTED }} />Document the specific complaint: what happened, when, and the tech's name</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><Phone className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: ORANGE }} />Empathize: <em className="text-white/70">"I'm really sorry you had that experience — that's not the standard we hold ourselves to."</em></li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><CheckCircle className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: GREEN }} />Confirm: <em className="text-white/70">"I'll make sure a different technician is assigned going forward."</em></li>
+        </ul>
+      </div>
+
+      {/* Step 2 */}
+      <div className="rounded-xl p-4" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,18%)" }}>
+        <div className="flex items-center gap-2 mb-3">
+          <div className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style={{ background: RED, color: "#fff" }}>2</div>
+          <span className="text-sm font-semibold text-white">Dispatch — Reassign & Flag</span>
+        </div>
+        <ul className="space-y-2">
+          <li className="text-xs text-white/60 flex items-start gap-2"><User className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: ORANGE }} />Add a <strong className="text-white/70">"Do Not Send"</strong> note on the customer profile for that tech</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><Calendar className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: ORANGE }} />Assign an alternate tech — if possible, choose a senior or highly-rated tech to rebuild trust</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><ArrowRight className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: WARM }} />If the complaint involves the current open job: swap tech today if schedule allows</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><AlertTriangle className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: RED }} />Escalate to field manager if complaint involves harassment, property damage, or safety</li>
+        </ul>
+      </div>
+
+      {/* Step 3 */}
+      <div className="rounded-xl p-4" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,18%)" }}>
+        <div className="flex items-center gap-2 mb-3">
+          <div className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style={{ background: RED, color: "#fff" }}>3</div>
+          <span className="text-sm font-semibold text-white">Internal Follow-Up</span>
+        </div>
+        <ul className="space-y-2">
+          <li className="text-xs text-white/60 flex items-start gap-2"><FileText className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: MUTED }} />Log the complaint formally — include date, customer, tech, and details</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><Users className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: WARM }} />Notify field manager for coaching conversation with the tech</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><Search className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: ORANGE }} />Check if this tech has prior complaints — pattern = escalation to HR</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><Phone className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: GREEN }} />CS follow-up after next visit: "How was your experience with [new tech]?"</li>
+        </ul>
+      </div>
+    </div>
+
+    {/* Severity matrix */}
+    <div className="rounded-xl p-4 mb-4" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,18%)" }}>
+      <p className="text-xs font-bold uppercase tracking-wider mb-3" style={{ color: RED }}>Complaint Severity & Response</p>
+      <div className="grid grid-cols-3 gap-3">
+        {[
+          { level: "Minor", color: ORANGE, desc: "Attitude, lateness, messiness, poor communication", action: "Log + coaching conversation with tech" },
+          { level: "Moderate", color: WARM, desc: "Rude language, dismissive behavior, unprofessional conduct", action: "Formal write-up + no assignment to this customer" },
+          { level: "Severe", color: RED, desc: "Harassment, property damage, safety violations, dishonesty", action: "Immediate removal from board + HR investigation" },
+        ].map((item, i) => (
+          <div key={i} className="rounded-lg p-3" style={{ background: `${item.color}08`, border: `1px solid ${item.color}15` }}>
+            <p className="text-xs font-bold mb-1" style={{ color: item.color }}>{item.level}</p>
+            <p className="text-[11px] text-white/50 mb-2">{item.desc}</p>
+            <p className="text-[11px] text-white/70 font-medium">→ {item.action}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    {/* Do / Don't */}
+    <div className="grid grid-cols-2 gap-4">
+      <div className="rounded-xl p-3" style={{ background: `${GREEN}08`, border: `1px solid ${GREEN}22` }}>
+        <p className="text-[10px] uppercase tracking-wider font-bold mb-1.5" style={{ color: GREEN }}>Do</p>
+        <ul className="space-y-1">
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: GREEN }} />Take every complaint seriously — even if the tech "didn't mean it"</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: GREEN }} />Honor the reassignment request immediately — no questions asked</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: GREEN }} />Use complaints as training data — share anonymized feedback in team meetings</li>
+        </ul>
+      </div>
+      <div className="rounded-xl p-3" style={{ background: `${RED}08`, border: `1px solid ${RED}22` }}>
+        <p className="text-[10px] uppercase tracking-wider font-bold mb-1.5" style={{ color: RED }}>Don't</p>
+        <ul className="space-y-1">
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><AlertTriangle className="w-3 h-3 flex-shrink-0" style={{ color: RED }} />Defend the tech to the customer — that's an internal conversation</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><AlertTriangle className="w-3 h-3 flex-shrink-0" style={{ color: RED }} />Send the same tech again "because they're the only one available"</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><AlertTriangle className="w-3 h-3 flex-shrink-0" style={{ color: RED }} />Ignore repeated complaints — patterns must be escalated to management</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+);
+
+/* ── Export slide list (37 slides: Customer Service & Dispatch Guide) ── */
 export const slides = [
   { title: "Dispatch Guide", component: DispatchTitleSlide, keywords: "cover title homets phone number dispatch guide" },
   { title: "Call Flow / Decision Tree", component: CallFlowSlide, keywords: "call flow decision tree intake answer identify emergency service type book" },
@@ -3953,4 +4149,6 @@ export const slides = [
   { title: "Two-Tech Job", component: TwoTechJobSlide, keywords: "two tech helper assist heavy equipment install rooftop commercial lift safety second technician pair crew" },
   { title: "Misdiagnosed / Mis-Booked", component: MisbookedJobSlide, keywords: "misdiagnosed mis-booked wrong trade service scope plumbing electrical intake error wrong system type CSR training" },
   { title: "Mid-Repair Cancellation", component: MidRepairCancelSlide, keywords: "cancel mid repair stop work customer changed mind sticker shock spouse partial billing safety wrap up" },
+  { title: "Locked / Gated Access", component: LockedAccessSlide, keywords: "locked gate access denied HOA property manager key code mechanical room roof hatch gated community entry" },
+  { title: "Tech Complaint", component: TechComplaintSlide, keywords: "tech complaint behavior attitude rude reassign different technician conduct harassment write-up coaching customer experience" },
 ];
