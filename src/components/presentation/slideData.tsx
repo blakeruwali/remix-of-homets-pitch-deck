@@ -4112,7 +4112,209 @@ export const TechComplaintSlide = () => (
   </div>
 );
 
-/* ── Export slide list (37 slides: Customer Service & Dispatch Guide) ── */
+/* ── Dispatch Scenario: Maintenance Upsell ── */
+export const MaintenanceUpsellSlide = () => (
+  <div className="flex flex-col justify-center h-full px-24"
+    style={{ background: "linear-gradient(135deg, hsl(0,0%,6%) 0%, hsl(0,0%,12%) 100%)" }}>
+    <div className="flex items-center gap-3 mb-6">
+      <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: `${GREEN}18`, border: `1px solid ${GREEN}33` }}>
+        <Search className="w-5 h-5" style={{ color: GREEN }} />
+      </div>
+      <div>
+        <h2 className="text-3xl font-bold text-white">Maintenance Upsell — Found Issues on Tune-Up</h2>
+        <p className="text-sm text-white/50 mt-0.5">Tech discovers additional problems during a routine maintenance visit</p>
+      </div>
+    </div>
+
+    {/* Approach philosophy */}
+    <div className="rounded-xl p-4 mb-4" style={{ background: `${GREEN}08`, border: `1px solid ${GREEN}15` }}>
+      <p className="text-xs font-bold uppercase tracking-wider mb-2" style={{ color: GREEN }}>The Right Mindset: Educate, Don't Sell</p>
+      <div className="grid grid-cols-3 gap-3">
+        {[
+          { label: "Inform, Don't Alarm", desc: "Present findings as observations, not emergencies. Let the customer decide." },
+          { label: "Photo Documentation", desc: "Tech takes photos/video of the issue — seeing is believing and removes skepticism." },
+          { label: "Prioritize for Them", desc: "Rank findings by urgency: safety → performance → efficiency → convenience." },
+        ].map((item, i) => (
+          <div key={i} className="rounded-lg p-3" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,15%)" }}>
+            <p className="text-xs font-semibold text-white mb-1">{item.label}</p>
+            <p className="text-[11px] text-white/45">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div className="grid grid-cols-3 gap-4 mb-5">
+      {/* Step 1 */}
+      <div className="rounded-xl p-4" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,18%)" }}>
+        <div className="flex items-center gap-2 mb-3">
+          <div className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style={{ background: GREEN, color: "#fff" }}>1</div>
+          <span className="text-sm font-semibold text-white">Tech — Document & Present</span>
+        </div>
+        <ul className="space-y-2">
+          <li className="text-xs text-white/60 flex items-start gap-2"><ClipboardList className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: GREEN }} />Complete the full tune-up checklist first — don't stop mid-maintenance to upsell</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><FileText className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: ORANGE }} />Take photos of every finding — cracked heat exchangers, worn capacitors, dirty coils, etc.</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><User className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: ORANGE }} />Sit down with the customer and walk through findings using photos on the tablet</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><AlertTriangle className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: RED }} />Separate <strong className="text-white/70">safety issues</strong> (must-fix) from <strong className="text-white/70">recommendations</strong> (should-fix / nice-to-have)</li>
+        </ul>
+      </div>
+
+      {/* Step 2 */}
+      <div className="rounded-xl p-4" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,18%)" }}>
+        <div className="flex items-center gap-2 mb-3">
+          <div className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style={{ background: GREEN, color: "#fff" }}>2</div>
+          <span className="text-sm font-semibold text-white">Present Options — Not Pressure</span>
+        </div>
+        <div className="space-y-3">
+          <div className="rounded-lg p-3" style={{ background: `${GREEN}08`, border: `1px solid ${GREEN}15` }}>
+            <p className="text-[10px] uppercase tracking-wider font-bold mb-1.5" style={{ color: GREEN }}>Recommended Script</p>
+            <p className="text-xs text-white/60 italic leading-relaxed">"During the tune-up I found a couple of things I want to show you. This [issue] is something I'd recommend addressing soon because [reason]. This other item is more of a future consideration. I can take care of [item] today, or I can leave you the details to think about — no pressure either way."</p>
+          </div>
+          <div className="rounded-lg p-3" style={{ background: `${ORANGE}08`, border: `1px solid ${ORANGE}15` }}>
+            <p className="text-[10px] uppercase tracking-wider font-bold mb-1.5" style={{ color: ORANGE }}>Pricing Transparency</p>
+            <p className="text-xs text-white/60 leading-relaxed">Provide a written estimate for each item. If the customer is a <strong className="text-white/70">member</strong>, highlight their discount. Never bundle findings into one lump price — itemize so they can choose.</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Step 3 */}
+      <div className="rounded-xl p-4" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,18%)" }}>
+        <div className="flex items-center gap-2 mb-3">
+          <div className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style={{ background: GREEN, color: "#fff" }}>3</div>
+          <span className="text-sm font-semibold text-white">If Customer Declines</span>
+        </div>
+        <ul className="space-y-2">
+          <li className="text-xs text-white/60 flex items-start gap-2"><CheckCircle className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: GREEN }} />Respect the decision — <strong className="text-white/70">"Absolutely, no problem at all."</strong></li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><Mail className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: ORANGE }} />Email the findings with photos so they have a record and can revisit later</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><Calendar className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: ORANGE }} />Set a <strong className="text-white/70">30-day follow-up</strong> task in ServiceTitan — many customers come back</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><FileText className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: MUTED }} />Log all findings in job notes so the next tech has full context</li>
+        </ul>
+      </div>
+    </div>
+
+    {/* Do / Don't */}
+    <div className="grid grid-cols-2 gap-4">
+      <div className="rounded-xl p-3" style={{ background: `${GREEN}08`, border: `1px solid ${GREEN}22` }}>
+        <p className="text-[10px] uppercase tracking-wider font-bold mb-1.5" style={{ color: GREEN }}>Do</p>
+        <ul className="space-y-1">
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: GREEN }} />Show photos — visual proof builds trust and removes the "are they making this up?" doubt</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: GREEN }} />Prioritize findings for the customer — "If you only do one thing, I'd recommend this"</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: GREEN }} />Mention membership discounts if applicable — it reinforces the value of their plan</li>
+        </ul>
+      </div>
+      <div className="rounded-xl p-3" style={{ background: `${RED}08`, border: `1px solid ${RED}22` }}>
+        <p className="text-[10px] uppercase tracking-wider font-bold mb-1.5" style={{ color: RED }}>Don't</p>
+        <ul className="space-y-1">
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><AlertTriangle className="w-3 h-3 flex-shrink-0" style={{ color: RED }} />Use scare tactics — "Your furnace could explode" destroys trust instantly</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><AlertTriangle className="w-3 h-3 flex-shrink-0" style={{ color: RED }} />Push for a same-day decision on expensive repairs — let them think about it</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><AlertTriangle className="w-3 h-3 flex-shrink-0" style={{ color: RED }} />Fabricate or exaggerate findings — one dishonest upsell loses the customer forever</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+);
+
+/* ── Dispatch Scenario: Manufacturer Warranty Coordination ── */
+export const ManufacturerWarrantySlide = () => (
+  <div className="flex flex-col justify-center h-full px-24"
+    style={{ background: "linear-gradient(135deg, hsl(0,0%,6%) 0%, hsl(0,0%,12%) 100%)" }}>
+    <div className="flex items-center gap-3 mb-6">
+      <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: `${WARM}18`, border: `1px solid ${WARM}33` }}>
+        <Shield className="w-5 h-5" style={{ color: WARM }} />
+      </div>
+      <div>
+        <h2 className="text-3xl font-bold text-white">Manufacturer Warranty — Parts & Authorization</h2>
+        <p className="text-sm text-white/50 mt-0.5">Equipment is under manufacturer warranty — tech must coordinate for covered parts or authorization</p>
+      </div>
+    </div>
+
+    {/* Key info */}
+    <div className="rounded-xl p-4 mb-4" style={{ background: `${WARM}08`, border: `1px solid ${WARM}15` }}>
+      <p className="text-xs font-bold uppercase tracking-wider mb-2" style={{ color: WARM }}>What Customers Need to Know</p>
+      <div className="grid grid-cols-3 gap-3">
+        {[
+          { label: "Parts = Covered", desc: "Manufacturer covers the part itself at no charge during warranty period" },
+          { label: "Labor = Customer Cost", desc: "Our labor to diagnose and install the warranty part is billable to the customer" },
+          { label: "Registration Required", desc: "Many warranties require product registration — check before assuming coverage" },
+        ].map((item, i) => (
+          <div key={i} className="rounded-lg p-3" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,15%)" }}>
+            <p className="text-xs font-semibold text-white mb-1">{item.label}</p>
+            <p className="text-[11px] text-white/45">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div className="grid grid-cols-3 gap-4 mb-5">
+      {/* Step 1 */}
+      <div className="rounded-xl p-4" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,18%)" }}>
+        <div className="flex items-center gap-2 mb-3">
+          <div className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style={{ background: WARM, color: "#fff" }}>1</div>
+          <span className="text-sm font-semibold text-white">Tech — Verify Warranty</span>
+        </div>
+        <ul className="space-y-2">
+          <li className="text-xs text-white/60 flex items-start gap-2"><Search className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: WARM }} />Record model number, serial number, and install date from the equipment nameplate</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><FileText className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: ORANGE }} />Check manufacturer's warranty portal or call their dealer line to confirm coverage</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><AlertTriangle className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: RED }} />Verify the unit was <strong className="text-white/70">registered</strong> and <strong className="text-white/70">properly installed</strong> — some warranties void if not</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><Phone className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: ORANGE }} />Report findings to dispatch with warranty status and part needed</li>
+        </ul>
+      </div>
+
+      {/* Step 2 */}
+      <div className="rounded-xl p-4" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,18%)" }}>
+        <div className="flex items-center gap-2 mb-3">
+          <div className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style={{ background: WARM, color: "#fff" }}>2</div>
+          <span className="text-sm font-semibold text-white">CS — Communicate & Coordinate</span>
+        </div>
+        <div className="space-y-3">
+          <div className="rounded-lg p-3" style={{ background: `${GREEN}08`, border: `1px solid ${GREEN}15` }}>
+            <p className="text-[10px] uppercase tracking-wider font-bold mb-1.5" style={{ color: GREEN }}>Warranty Confirmed Script</p>
+            <p className="text-xs text-white/60 italic leading-relaxed">"Great news — the [part] is covered under your manufacturer warranty, so there's no charge for the part itself. There will be a labor charge of [amount] for the installation. The part needs to be ordered through [manufacturer] and should arrive in [timeframe]. I'll schedule the return visit now."</p>
+          </div>
+          <div className="rounded-lg p-3" style={{ background: `${RED}08`, border: `1px solid ${RED}15` }}>
+            <p className="text-[10px] uppercase tracking-wider font-bold mb-1.5" style={{ color: RED }}>Warranty Denied Script</p>
+            <p className="text-xs text-white/60 italic leading-relaxed">"Unfortunately the manufacturer warranty doesn't cover this because [reason — expired, not registered, improper install]. I can provide a full quote for the part and labor so you can decide how you'd like to proceed."</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Step 3 */}
+      <div className="rounded-xl p-4" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,18%)" }}>
+        <div className="flex items-center gap-2 mb-3">
+          <div className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style={{ background: WARM, color: "#fff" }}>3</div>
+          <span className="text-sm font-semibold text-white">Dispatch & Parts Process</span>
+        </div>
+        <ul className="space-y-2">
+          <li className="text-xs text-white/60 flex items-start gap-2"><ArrowRight className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: WARM }} />Order part through manufacturer's warranty portal — <strong className="text-white/70">not</strong> through our regular supplier</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><Clock className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: ORANGE }} />Warranty parts often take <strong className="text-white/70">3–7 business days</strong> — set customer expectations accordingly</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><Calendar className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: ORANGE }} />Pre-schedule the return visit for when the part is expected — confirm once it arrives</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><FileText className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: MUTED }} />Tag job as "Warranty Repair" in ServiceTitan — track warranty vs. non-warranty revenue</li>
+        </ul>
+      </div>
+    </div>
+
+    {/* Do / Don't */}
+    <div className="grid grid-cols-2 gap-4">
+      <div className="rounded-xl p-3" style={{ background: `${GREEN}08`, border: `1px solid ${GREEN}22` }}>
+        <p className="text-[10px] uppercase tracking-wider font-bold mb-1.5" style={{ color: GREEN }}>Do</p>
+        <ul className="space-y-1">
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: GREEN }} />Explain parts vs. labor clearly — customers often assume "warranty" means 100% free</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: GREEN }} />Help unregistered customers register if the window hasn't closed — it's a goodwill gesture</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: GREEN }} />Keep the customer updated on part shipping status — don't go silent for a week</li>
+        </ul>
+      </div>
+      <div className="rounded-xl p-3" style={{ background: `${RED}08`, border: `1px solid ${RED}22` }}>
+        <p className="text-[10px] uppercase tracking-wider font-bold mb-1.5" style={{ color: RED }}>Don't</p>
+        <ul className="space-y-1">
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><AlertTriangle className="w-3 h-3 flex-shrink-0" style={{ color: RED }} />Use our own part and skip the warranty claim — it costs the company and the customer unnecessarily</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><AlertTriangle className="w-3 h-3 flex-shrink-0" style={{ color: RED }} />Tell the customer to "call the manufacturer themselves" — we handle the coordination</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><AlertTriangle className="w-3 h-3 flex-shrink-0" style={{ color: RED }} />Assume the warranty is valid without checking — always verify serial and registration first</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+);
+
+/* ── Export slide list (39 slides: Customer Service & Dispatch Guide) ── */
 export const slides = [
   { title: "Dispatch Guide", component: DispatchTitleSlide, keywords: "cover title homets phone number dispatch guide" },
   { title: "Call Flow / Decision Tree", component: CallFlowSlide, keywords: "call flow decision tree intake answer identify emergency service type book" },
@@ -4151,4 +4353,6 @@ export const slides = [
   { title: "Mid-Repair Cancellation", component: MidRepairCancelSlide, keywords: "cancel mid repair stop work customer changed mind sticker shock spouse partial billing safety wrap up" },
   { title: "Locked / Gated Access", component: LockedAccessSlide, keywords: "locked gate access denied HOA property manager key code mechanical room roof hatch gated community entry" },
   { title: "Tech Complaint", component: TechComplaintSlide, keywords: "tech complaint behavior attitude rude reassign different technician conduct harassment write-up coaching customer experience" },
+  { title: "Maintenance Upsell", component: MaintenanceUpsellSlide, keywords: "maintenance upsell tune-up found issue additional repair recommend photos educate sell without pressure member discount" },
+  { title: "Manufacturer Warranty", component: ManufacturerWarrantySlide, keywords: "manufacturer warranty parts authorization covered labor serial number registration portal dealer claim order OEM" },
 ];
