@@ -4424,7 +4424,347 @@ export const OutstandingBalanceSlide = () => (
   </div>
 );
 
-/* ── Export slide list (40 slides: Customer Service & Dispatch Guide) ── */
+/* ── Customer Type Slides ── */
+
+const BLUE = "hsl(210, 70%, 55%)";
+const PURPLE = "hsl(270, 60%, 55%)";
+const TEAL = "hsl(180, 60%, 45%)";
+
+export const HomeownerSlide = () => (
+  <div className="flex flex-col justify-center h-full px-20" style={{ background: "hsl(0,0%,7%)" }}>
+    <p className="text-2xl font-semibold mb-3 uppercase tracking-widest" style={{ color: ORANGE }}>Customer Profile</p>
+    <h2 className="text-5xl font-bold text-white mb-8">Homeowner — Primary Residence</h2>
+
+    <div className="grid grid-cols-3 gap-6 mb-8">
+      {/* Who They Are */}
+      <div className="rounded-2xl p-6" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,15%)" }}>
+        <div className="flex items-center gap-3 mb-4">
+          <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: `${ORANGE}22` }}>
+            <Home className="w-5 h-5" style={{ color: ORANGE }} />
+          </div>
+          <h3 className="text-xl font-bold text-white">Who They Are</h3>
+        </div>
+        <ul className="space-y-2">
+          {["Lives in the home full-time", "Personally affected by comfort issues", "Makes their own decisions (or with spouse)", "Emotionally invested in their home"].map((item, i) => (
+            <li key={i} className="text-sm text-white/60 flex items-start gap-2">
+              <CheckCircle className="w-3.5 h-3.5 mt-0.5 flex-shrink-0" style={{ color: GREEN }} />{item}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* What They Care About */}
+      <div className="rounded-2xl p-6" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,15%)" }}>
+        <div className="flex items-center gap-3 mb-4">
+          <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: `${GREEN}22` }}>
+            <Shield className="w-5 h-5" style={{ color: GREEN }} />
+          </div>
+          <h3 className="text-xl font-bold text-white">What They Care About</h3>
+        </div>
+        <ul className="space-y-2">
+          {["Comfort — they feel it when the system fails", "Safety — family, pets, elderly parents", "Cost — spending their own money", "Trust — want to know they're not being oversold", "Speed — they want it fixed now, not next week"].map((item, i) => (
+            <li key={i} className="text-sm text-white/60 flex items-start gap-2">
+              <ChevronRight className="w-3.5 h-3.5 mt-0.5 flex-shrink-0" style={{ color: ORANGE }} />{item}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* Intake Priorities */}
+      <div className="rounded-2xl p-6" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,15%)" }}>
+        <div className="flex items-center gap-3 mb-4">
+          <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: `${WARM}22` }}>
+            <ClipboardList className="w-5 h-5" style={{ color: WARM }} />
+          </div>
+          <h3 className="text-xl font-bold text-white">Intake Priorities</h3>
+        </div>
+        <ul className="space-y-2">
+          {["Confirm who will be home for the appointment", "Ask about pets (dogs, cats — tech needs to know)", "System age & last service date", "Membership status — pitch Home+ if not enrolled", "Any prior work done by another company?"].map((item, i) => (
+            <li key={i} className="text-sm text-white/60 flex items-start gap-2">
+              <ArrowRight className="w-3.5 h-3.5 mt-0.5 flex-shrink-0" style={{ color: WARM }} />{item}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    {/* Tone & Approach */}
+    <div className="rounded-2xl p-5 mb-6" style={{ background: `${ORANGE}08`, border: `1px solid ${ORANGE}22` }}>
+      <h3 className="text-lg font-bold text-white mb-3 flex items-center gap-2">
+        <MessageSquare className="w-5 h-5" style={{ color: ORANGE }} /> Tone & Approach
+      </h3>
+      <div className="grid grid-cols-2 gap-4">
+        <div>
+          <p className="text-sm font-semibold text-white/80 mb-1">Be warm and empathetic</p>
+          <p className="text-xs text-white/50 italic">"I totally understand — let's get someone out there so you're comfortable tonight."</p>
+        </div>
+        <div>
+          <p className="text-sm font-semibold text-white/80 mb-1">Sell the visit, not the repair</p>
+          <p className="text-xs text-white/50 italic">"Our tech will walk you through everything before any work starts — no surprises."</p>
+        </div>
+      </div>
+    </div>
+
+    {/* Membership Pitch */}
+    <div className="rounded-xl p-4 text-center" style={{ background: `linear-gradient(135deg, ${GREEN}15, ${GREEN}08)`, border: `1px solid ${GREEN}33` }}>
+      <p className="text-sm font-bold" style={{ color: GREEN }}>🏡 Membership Angle: "Most homeowners choose our Home+ plan — it waives the diagnostic and includes annual maintenance."</p>
+    </div>
+  </div>
+);
+
+export const RentalPropertySlide = () => (
+  <div className="flex flex-col justify-center h-full px-20" style={{ background: "hsl(0,0%,7%)" }}>
+    <p className="text-2xl font-semibold mb-3 uppercase tracking-widest" style={{ color: BLUE }}>Customer Profile</p>
+    <h2 className="text-5xl font-bold text-white mb-8">Rental / Investment Property</h2>
+
+    <div className="grid grid-cols-3 gap-6 mb-8">
+      <div className="rounded-2xl p-6" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,15%)" }}>
+        <div className="flex items-center gap-3 mb-4">
+          <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: `${BLUE}22` }}>
+            <Building className="w-5 h-5" style={{ color: BLUE }} />
+          </div>
+          <h3 className="text-xl font-bold text-white">Who They Are</h3>
+        </div>
+        <ul className="space-y-2">
+          {["Landlord or investor — may not live on-site", "Owns one or multiple rental units", "Tenant may be the one calling", "Cost-conscious — it's a business expense", "May have a property manager involved"].map((item, i) => (
+            <li key={i} className="text-sm text-white/60 flex items-start gap-2">
+              <CheckCircle className="w-3.5 h-3.5 mt-0.5 flex-shrink-0" style={{ color: GREEN }} />{item}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="rounded-2xl p-6" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,15%)" }}>
+        <div className="flex items-center gap-3 mb-4">
+          <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: `${BLUE}22` }}>
+            <DollarSign className="w-5 h-5" style={{ color: BLUE }} />
+          </div>
+          <h3 className="text-xl font-bold text-white">What They Care About</h3>
+        </div>
+        <ul className="space-y-2">
+          {["Cost vs. ROI — repair or replace decision", "Tenant satisfaction — avoid complaints & turnover", "Speed — vacant units lose rental income", "Reliability — don't want repeat calls", "Documentation — receipts & warranties for records"].map((item, i) => (
+            <li key={i} className="text-sm text-white/60 flex items-start gap-2">
+              <ChevronRight className="w-3.5 h-3.5 mt-0.5 flex-shrink-0" style={{ color: BLUE }} />{item}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="rounded-2xl p-6" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,15%)" }}>
+        <div className="flex items-center gap-3 mb-4">
+          <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: `${RED}22` }}>
+            <AlertTriangle className="w-5 h-5" style={{ color: RED }} />
+          </div>
+          <h3 className="text-xl font-bold text-white">Key Intake Questions</h3>
+        </div>
+        <ul className="space-y-2">
+          {["Who is authorizing payment — owner or tenant?", "Will the owner or tenant be present for the visit?", "Is the unit occupied or vacant?", "Does the owner want to be called before any work is approved?", "Any access codes or lockbox info?"].map((item, i) => (
+            <li key={i} className="text-sm text-white/60 flex items-start gap-2">
+              <ArrowRight className="w-3.5 h-3.5 mt-0.5 flex-shrink-0" style={{ color: RED }} />{item}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    {/* Authorization Protocol */}
+    <div className="rounded-2xl p-5 mb-6" style={{ background: `${BLUE}08`, border: `1px solid ${BLUE}22` }}>
+      <h3 className="text-lg font-bold text-white mb-3 flex items-center gap-2">
+        <ShieldAlert className="w-5 h-5" style={{ color: BLUE }} /> Authorization Protocol
+      </h3>
+      <div className="grid grid-cols-3 gap-4">
+        <div className="rounded-xl p-3" style={{ background: "hsl(0,0%,9%)" }}>
+          <p className="text-xs uppercase tracking-wider font-bold mb-1" style={{ color: GREEN }}>Owner Calls</p>
+          <p className="text-xs text-white/50">Standard booking. Owner authorizes and pays. Confirm if tenant needs to provide access.</p>
+        </div>
+        <div className="rounded-xl p-3" style={{ background: "hsl(0,0%,9%)" }}>
+          <p className="text-xs uppercase tracking-wider font-bold mb-1" style={{ color: ORANGE }}>Tenant Calls</p>
+          <p className="text-xs text-white/50">Book the visit, but note: <strong className="text-white/70">owner must authorize payment</strong>. Get owner's contact and confirm before dispatch.</p>
+        </div>
+        <div className="rounded-xl p-3" style={{ background: "hsl(0,0%,9%)" }}>
+          <p className="text-xs uppercase tracking-wider font-bold mb-1" style={{ color: RED }}>Emergency Exception</p>
+          <p className="text-xs text-white/50">Gas leak, no heat, flooding — dispatch immediately. Notify owner after. Safety overrides authorization.</p>
+        </div>
+      </div>
+    </div>
+
+    <div className="rounded-xl p-4 text-center" style={{ background: `linear-gradient(135deg, ${BLUE}15, ${BLUE}08)`, border: `1px solid ${BLUE}33` }}>
+      <p className="text-sm font-bold" style={{ color: BLUE }}>🏘️ Pitch: "Landlords with multiple units love our Home+ plan — one membership covers the property and keeps your tenants happy."</p>
+    </div>
+  </div>
+);
+
+export const CommercialOfficeSlide = () => (
+  <div className="flex flex-col justify-center h-full px-20" style={{ background: "hsl(0,0%,7%)" }}>
+    <p className="text-2xl font-semibold mb-3 uppercase tracking-widest" style={{ color: PURPLE }}>Customer Profile</p>
+    <h2 className="text-5xl font-bold text-white mb-8">Commercial / Office</h2>
+
+    <div className="grid grid-cols-3 gap-6 mb-8">
+      <div className="rounded-2xl p-6" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,15%)" }}>
+        <div className="flex items-center gap-3 mb-4">
+          <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: `${PURPLE}22` }}>
+            <Building className="w-5 h-5" style={{ color: PURPLE }} />
+          </div>
+          <h3 className="text-xl font-bold text-white">Who They Are</h3>
+        </div>
+        <ul className="space-y-2">
+          {["Business owner, office manager, or facilities contact", "Employees/customers are affected by HVAC issues", "May have multiple systems (rooftop units, splits)", "Often need after-hours or weekend service", "Purchase orders or corporate billing may apply"].map((item, i) => (
+            <li key={i} className="text-sm text-white/60 flex items-start gap-2">
+              <CheckCircle className="w-3.5 h-3.5 mt-0.5 flex-shrink-0" style={{ color: GREEN }} />{item}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="rounded-2xl p-6" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,15%)" }}>
+        <div className="flex items-center gap-3 mb-4">
+          <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: `${PURPLE}22` }}>
+            <Clock className="w-5 h-5" style={{ color: PURPLE }} />
+          </div>
+          <h3 className="text-xl font-bold text-white">What They Care About</h3>
+        </div>
+        <ul className="space-y-2">
+          {["Minimal disruption to business operations", "Professional appearance — techs represent them too", "Speed — lost productivity = lost revenue", "Compliance — fire codes, health dept, OSHA", "Ongoing maintenance contracts for budget planning"].map((item, i) => (
+            <li key={i} className="text-sm text-white/60 flex items-start gap-2">
+              <ChevronRight className="w-3.5 h-3.5 mt-0.5 flex-shrink-0" style={{ color: PURPLE }} />{item}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="rounded-2xl p-6" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,15%)" }}>
+        <div className="flex items-center gap-3 mb-4">
+          <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: `${ORANGE}22` }}>
+            <ClipboardList className="w-5 h-5" style={{ color: ORANGE }} />
+          </div>
+          <h3 className="text-xl font-bold text-white">Key Intake Questions</h3>
+        </div>
+        <ul className="space-y-2">
+          {["Type of business? (restaurant, office, retail, medical)", "How many units / systems on-site?", "Preferred service hours? (before open, after close, weekends)", "Who is the on-site contact for access?", "PO or invoice required? Billing contact?"].map((item, i) => (
+            <li key={i} className="text-sm text-white/60 flex items-start gap-2">
+              <ArrowRight className="w-3.5 h-3.5 mt-0.5 flex-shrink-0" style={{ color: ORANGE }} />{item}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    {/* Pricing & Scheduling */}
+    <div className="rounded-2xl p-5 mb-6" style={{ background: `${PURPLE}08`, border: `1px solid ${PURPLE}22` }}>
+      <h3 className="text-lg font-bold text-white mb-3 flex items-center gap-2">
+        <DollarSign className="w-5 h-5" style={{ color: PURPLE }} /> Commercial Pricing & Scheduling
+      </h3>
+      <div className="grid grid-cols-3 gap-4">
+        <div className="rounded-xl p-3" style={{ background: "hsl(0,0%,9%)" }}>
+          <p className="text-xs uppercase tracking-wider font-bold mb-1" style={{ color: ORANGE }}>Standard Diagnostic</p>
+          <p className="text-2xl font-bold mb-1" style={{ color: ORANGE }}>$269</p>
+          <p className="text-xs text-white/50">Single system, standard access, during business hours.</p>
+        </div>
+        <div className="rounded-xl p-3" style={{ background: "hsl(0,0%,9%)" }}>
+          <p className="text-xs uppercase tracking-wider font-bold mb-1" style={{ color: RED }}>Complex / Multi-Unit</p>
+          <p className="text-2xl font-bold mb-1" style={{ color: RED }}>$499</p>
+          <p className="text-xs text-white/50">Multiple systems, rooftop access, restaurants, or complex setups.</p>
+        </div>
+        <div className="rounded-xl p-3" style={{ background: "hsl(0,0%,9%)" }}>
+          <p className="text-xs uppercase tracking-wider font-bold mb-1" style={{ color: GREEN }}>Maintenance Contract</p>
+          <p className="text-2xl font-bold mb-1" style={{ color: GREEN }}>Custom</p>
+          <p className="text-xs text-white/50">Quarterly or seasonal plans. Offer during every commercial call.</p>
+        </div>
+      </div>
+    </div>
+
+    <div className="rounded-xl p-4 text-center" style={{ background: `linear-gradient(135deg, ${PURPLE}15, ${PURPLE}08)`, border: `1px solid ${PURPLE}33` }}>
+      <p className="text-sm font-bold" style={{ color: PURPLE }}>🏢 Pitch: "We work with a lot of businesses on the Island — we can schedule around your hours and set up a maintenance plan so you never have a surprise breakdown."</p>
+    </div>
+  </div>
+);
+
+export const PropertyManagerSlide = () => (
+  <div className="flex flex-col justify-center h-full px-20" style={{ background: "hsl(0,0%,7%)" }}>
+    <p className="text-2xl font-semibold mb-3 uppercase tracking-widest" style={{ color: TEAL }}>Customer Profile</p>
+    <h2 className="text-5xl font-bold text-white mb-8">Property Manager / HOA</h2>
+
+    <div className="grid grid-cols-3 gap-6 mb-8">
+      <div className="rounded-2xl p-6" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,15%)" }}>
+        <div className="flex items-center gap-3 mb-4">
+          <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: `${TEAL}22` }}>
+            <Users className="w-5 h-5" style={{ color: TEAL }} />
+          </div>
+          <h3 className="text-xl font-bold text-white">Who They Are</h3>
+        </div>
+        <ul className="space-y-2">
+          {["Manages multiple properties or a large complex", "Acts as middleman between owner/board and tenants", "Juggles multiple vendors and service requests", "Needs reliable, responsive partners they can count on", "Often handles emergencies across multiple sites"].map((item, i) => (
+            <li key={i} className="text-sm text-white/60 flex items-start gap-2">
+              <CheckCircle className="w-3.5 h-3.5 mt-0.5 flex-shrink-0" style={{ color: GREEN }} />{item}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="rounded-2xl p-6" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,15%)" }}>
+        <div className="flex items-center gap-3 mb-4">
+          <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: `${TEAL}22` }}>
+            <Repeat className="w-5 h-5" style={{ color: TEAL }} />
+          </div>
+          <h3 className="text-xl font-bold text-white">What They Care About</h3>
+        </div>
+        <ul className="space-y-2">
+          {["Consistency — same quality across every property", "Communication — proactive updates, no surprises", "Volume pricing — managing multiple units on budget", "Documentation — invoices, photos, warranties per unit", "Responsiveness — their reputation depends on fast fixes"].map((item, i) => (
+            <li key={i} className="text-sm text-white/60 flex items-start gap-2">
+              <ChevronRight className="w-3.5 h-3.5 mt-0.5 flex-shrink-0" style={{ color: TEAL }} />{item}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="rounded-2xl p-6" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,15%)" }}>
+        <div className="flex items-center gap-3 mb-4">
+          <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: `${ORANGE}22` }}>
+            <FileText className="w-5 h-5" style={{ color: ORANGE }} />
+          </div>
+          <h3 className="text-xl font-bold text-white">Key Intake Questions</h3>
+        </div>
+        <ul className="space-y-2">
+          {["How many properties / units do you manage?", "Do you have a preferred vendor approval process?", "Who authorizes work — you or the owner/board?", "Do you need separate invoicing per property?", "Any standing maintenance schedule in place?"].map((item, i) => (
+            <li key={i} className="text-sm text-white/60 flex items-start gap-2">
+              <ArrowRight className="w-3.5 h-3.5 mt-0.5 flex-shrink-0" style={{ color: ORANGE }} />{item}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    {/* VIP Treatment */}
+    <div className="rounded-2xl p-5 mb-6" style={{ background: `${TEAL}08`, border: `1px solid ${TEAL}22` }}>
+      <h3 className="text-lg font-bold text-white mb-3 flex items-center gap-2">
+        <Shield className="w-5 h-5" style={{ color: TEAL }} /> Why They're VIP-Tier Customers
+      </h3>
+      <div className="grid grid-cols-4 gap-4">
+        {[
+          { label: "Repeat Revenue", desc: "Multiple units = recurring service calls year-round", icon: DollarSign },
+          { label: "Referral Engine", desc: "One PM can send you every property they manage", icon: Users },
+          { label: "Priority Scheduling", desc: "Flag as VIP in ServiceTitan — bump-up priority", icon: Calendar },
+          { label: "Dedicated Contact", desc: "Assign a CS rep as their go-to for all requests", icon: Headphones },
+        ].map((item, i) => {
+          const Icon = item.icon;
+          return (
+            <div key={i} className="rounded-xl p-3" style={{ background: "hsl(0,0%,9%)" }}>
+              <Icon className="w-4 h-4 mb-2" style={{ color: TEAL }} />
+              <p className="text-xs font-bold text-white/80 mb-1">{item.label}</p>
+              <p className="text-xs text-white/45">{item.desc}</p>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+
+    <div className="rounded-xl p-4 text-center" style={{ background: `linear-gradient(135deg, ${TEAL}15, ${TEAL}08)`, border: `1px solid ${TEAL}33` }}>
+      <p className="text-sm font-bold" style={{ color: TEAL }}>🏗️ Pitch: "We work with several property managers on the Island — we can set up a dedicated account with priority response and per-property invoicing."</p>
+    </div>
+  </div>
+);
+
+/* ── Export slide list (44 slides: Customer Service & Dispatch Guide) ── */
 export const slides = [
   { title: "Dispatch Guide", component: DispatchTitleSlide, keywords: "cover title homets phone number dispatch guide" },
   { title: "Call Flow / Decision Tree", component: CallFlowSlide, keywords: "call flow decision tree intake answer identify emergency service type book" },
@@ -4466,4 +4806,8 @@ export const slides = [
   { title: "Maintenance Upsell", component: MaintenanceUpsellSlide, keywords: "maintenance upsell tune-up found issue additional repair recommend photos educate sell without pressure member discount" },
   { title: "Manufacturer Warranty", component: ManufacturerWarrantySlide, keywords: "manufacturer warranty parts authorization covered labor serial number registration portal dealer claim order OEM" },
   { title: "Outstanding Balance", component: OutstandingBalanceSlide, keywords: "outstanding balance unpaid invoice past due collections owe money account hold payment plan overdue billing dispute" },
+  { title: "Homeowner — Primary Residence", component: HomeownerSlide, keywords: "homeowner primary residence house owner family pets spouse comfort safety membership home+" },
+  { title: "Rental / Investment Property", component: RentalPropertySlide, keywords: "rental investment property landlord tenant authorization access vacant unit owner billing" },
+  { title: "Commercial / Office", component: CommercialOfficeSlide, keywords: "commercial office business restaurant retail medical rooftop after hours PO invoice maintenance contract" },
+  { title: "Property Manager / HOA", component: PropertyManagerSlide, keywords: "property manager HOA management company multiple properties vendor approval invoicing VIP volume dedicated account" },
 ];
