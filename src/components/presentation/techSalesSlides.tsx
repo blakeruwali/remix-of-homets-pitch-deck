@@ -903,29 +903,66 @@ export const InstallPricingFrameworkSlide = () => {
 
   return (
     <div className="flex flex-col justify-center h-full px-16" style={{ background: "hsl(0,0%,7%)" }}>
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex items-center justify-between mb-4">
         <div>
           <p className="text-xl font-semibold mb-2 uppercase tracking-widest" style={{ color: ORANGE }}>Pricing Reference</p>
           <h2 className="text-4xl font-bold text-white">Installation Pricing Framework</h2>
         </div>
-        <div className="flex rounded-xl overflow-hidden" style={{ border: `1px solid hsl(0,0%,20%)` }}>
-          {(["residential", "commercial"] as const).map((tab) => (
-            <button key={tab} onClick={() => setActiveTab(tab)}
-              className="px-5 py-2.5 text-sm font-bold uppercase tracking-wider transition-all"
-              style={{
-                background: activeTab === tab ? ORANGE : "transparent",
-                color: activeTab === tab ? "white" : "hsl(0,0%,55%)",
-              }}>
-              {tab}
-            </button>
-          ))}
+        <div className="flex items-center gap-4">
+          {/* Rate badges */}
+          <div className="flex gap-2">
+            <div className="rounded-lg px-3 py-1.5 text-center" style={{ background: SURFACE2, border: `1px solid hsl(0,0%,18%)` }}>
+              <p className="text-[10px] text-white/40 uppercase">Res. Labor</p>
+              <p className="text-sm font-bold text-white">$219<span className="text-white/40 text-[10px]">/hr</span></p>
+            </div>
+            <div className="rounded-lg px-3 py-1.5 text-center" style={{ background: SURFACE2, border: `1px solid hsl(0,0%,18%)` }}>
+              <p className="text-[10px] text-white/40 uppercase">Com. Labor</p>
+              <p className="text-sm font-bold text-white">$269<span className="text-white/40 text-[10px]">/hr</span></p>
+            </div>
+            <div className="rounded-lg px-3 py-1.5 text-center" style={{ background: SURFACE2, border: `1px solid hsl(0,0%,18%)` }}>
+              <p className="text-[10px] text-white/40 uppercase">Res. Diag</p>
+              <p className="text-sm font-bold text-white">$199</p>
+            </div>
+            <div className="rounded-lg px-3 py-1.5 text-center" style={{ background: SURFACE2, border: `1px solid hsl(0,0%,18%)` }}>
+              <p className="text-[10px] text-white/40 uppercase">Com. Diag</p>
+              <p className="text-sm font-bold text-white">$269</p>
+            </div>
+          </div>
+          <div className="flex rounded-xl overflow-hidden" style={{ border: `1px solid hsl(0,0%,20%)` }}>
+            {(["residential", "commercial"] as const).map((tab) => (
+              <button key={tab} onClick={() => setActiveTab(tab)}
+                className="px-5 py-2.5 text-sm font-bold uppercase tracking-wider transition-all"
+                style={{
+                  background: activeTab === tab ? ORANGE : "transparent",
+                  color: activeTab === tab ? "white" : "hsl(0,0%,55%)",
+                }}>
+                {tab}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Policy callouts */}
+      <div className="flex gap-3 mb-4">
+        <div className="flex-1 rounded-lg px-3 py-2 flex items-center gap-2" style={{ background: `${GREEN}12`, border: `1px solid ${GREEN}33` }}>
+          <CheckCircle className="w-4 h-4 flex-shrink-0" style={{ color: GREEN }} />
+          <p className="text-[11px] text-white/70"><strong style={{ color: GREEN }}>$199 diagnostic credited</strong> toward repair if customer proceeds</p>
+        </div>
+        <div className="flex-1 rounded-lg px-3 py-2 flex items-center gap-2" style={{ background: `${BLUE}12`, border: `1px solid ${BLUE}33` }}>
+          <Shield className="w-4 h-4 flex-shrink-0" style={{ color: BLUE }} />
+          <p className="text-[11px] text-white/70"><strong style={{ color: BLUE }}>No emergency surcharge</strong> — same rates for after-hours & weekends</p>
+        </div>
+        <div className="flex-1 rounded-lg px-3 py-2 flex items-center gap-2" style={{ background: `${GOLD}12`, border: `1px solid ${GOLD}33` }}>
+          <Star className="w-4 h-4 flex-shrink-0" style={{ color: GOLD }} />
+          <p className="text-[11px] text-white/70"><strong style={{ color: GOLD }}>Best tier includes</strong> Home+ Membership, extended warranty & IAQ bundle</p>
         </div>
       </div>
 
       {activeTab === "residential" ? (
         <>
           {/* Systems table */}
-          <div className="rounded-2xl overflow-hidden mb-5" style={{ background: SURFACE, border: `1px solid hsl(0,0%,15%)` }}>
+          <div className="rounded-2xl overflow-hidden mb-4" style={{ background: SURFACE, border: `1px solid hsl(0,0%,15%)` }}>
             <div className="grid grid-cols-[180px_1fr_1fr_1fr] text-xs font-bold uppercase tracking-wider"
               style={{ background: SURFACE2 }}>
               <div className="px-4 py-3 text-white/40">System Type</div>
@@ -951,10 +988,10 @@ export const InstallPricingFrameworkSlide = () => {
           </div>
 
           {/* Add-ons */}
-          <div className="rounded-2xl p-5" style={{ background: SURFACE, border: `1px solid hsl(0,0%,15%)` }}>
-            <h3 className="text-lg font-bold text-white mb-3 flex items-center gap-2">
-              <CircleDollarSign className="w-5 h-5" style={{ color: GREEN }} />
-              Common Add-Ons & Upgrades
+          <div className="rounded-2xl p-4" style={{ background: SURFACE, border: `1px solid hsl(0,0%,15%)` }}>
+            <h3 className="text-sm font-bold text-white mb-3 flex items-center gap-2">
+              <CircleDollarSign className="w-4 h-4" style={{ color: GREEN }} />
+              Common Add-Ons & Upgrades <span className="text-[10px] text-white/30 font-normal ml-1">Labor at $219/hr residential</span>
             </h3>
             <div className="grid grid-cols-5 gap-2">
               {addOns.map((a, i) => (
@@ -968,10 +1005,10 @@ export const InstallPricingFrameworkSlide = () => {
           </div>
         </>
       ) : (
-        <div className="flex-1 flex flex-col items-center justify-center rounded-2xl p-12" style={{ background: SURFACE }}>
-          <Calculator className="w-16 h-16 mb-4" style={{ color: ORANGE }} />
+        <div className="flex-1 flex flex-col items-center justify-center rounded-2xl p-10" style={{ background: SURFACE }}>
+          <Calculator className="w-14 h-14 mb-4" style={{ color: ORANGE }} />
           <h3 className="text-2xl font-bold text-white mb-3">Commercial Pricing</h3>
-          <p className="text-lg text-white/50 text-center max-w-[600px] mb-6">
+          <p className="text-base text-white/50 text-center max-w-[600px] mb-6">
             Commercial installs are quoted per-project using site survey data. Use these guidelines:
           </p>
           <div className="grid grid-cols-3 gap-4 w-full max-w-[800px]">
@@ -987,18 +1024,26 @@ export const InstallPricingFrameworkSlide = () => {
               </div>
             ))}
           </div>
-          <div className="mt-6 rounded-xl p-4 w-full max-w-[800px]" style={{ background: `${BLUE}12`, border: `1px solid ${BLUE}33` }}>
-            <p className="text-sm text-white/70 text-center">
-              <strong style={{ color: BLUE }}>Reminder:</strong> Commercial labor rate is <strong className="text-white">$269/hr</strong>. Diagnostic fee is <strong className="text-white">$269</strong>. Always include permit costs and crane rental if applicable.
-            </p>
+          <div className="grid grid-cols-2 gap-3 mt-5 w-full max-w-[800px]">
+            <div className="rounded-xl p-3" style={{ background: `${BLUE}12`, border: `1px solid ${BLUE}33` }}>
+              <p className="text-sm text-white/70 text-center">
+                <strong style={{ color: BLUE }}>Labor:</strong> <strong className="text-white">$269/hr</strong> · Diagnostic: <strong className="text-white">$269</strong>
+              </p>
+            </div>
+            <div className="rounded-xl p-3" style={{ background: `${GREEN}12`, border: `1px solid ${GREEN}33` }}>
+              <p className="text-sm text-white/70 text-center">
+                <strong style={{ color: GREEN }}>Complex Diagnostic:</strong> <strong className="text-white">$499</strong> <span className="text-white/40">(multi-system / engineered)</span>
+              </p>
+            </div>
           </div>
+          <p className="text-[11px] text-white/35 mt-4">Always include permit costs, crane rental, and engineering fees if applicable. No emergency surcharge.</p>
         </div>
       )}
 
-      <div className="mt-4 rounded-xl p-3 flex items-center gap-3" style={{ background: `${RED}12`, border: `1px solid ${RED}33` }}>
+      <div className="mt-3 rounded-xl p-3 flex items-center gap-3" style={{ background: `${RED}12`, border: `1px solid ${RED}33` }}>
         <AlertTriangle className="w-5 h-5 flex-shrink-0" style={{ color: RED }} />
         <p className="text-xs text-white/70">
-          <strong style={{ color: RED }}>Important:</strong> These are framework ranges. Always use your estimating tool for exact pricing. Factor in: complexity, accessibility, code requirements, ductwork mods, electrical upgrades, and permit fees. Never quote from memory.
+          <strong style={{ color: RED }}>Important:</strong> These are framework ranges — always use your estimating tool for exact pricing. Factor in: complexity, accessibility, code requirements, ductwork mods, electrical upgrades, and permit fees. Never quote from memory.
         </p>
       </div>
     </div>
