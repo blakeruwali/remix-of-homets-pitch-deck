@@ -1092,8 +1092,9 @@ export const CashVsFinancingSlide = () => {
                 { step: "1", text: "Present Good / Better / Best options", note: "Always show all three" },
                 { step: "2", text: "Customer selects their package", note: "Confirm scope out loud" },
                 { step: "3", text: "Collect deposit — $1,000 or 10%, whichever is greater", note: "Receipt required — write it up on the spot" },
-                { step: "4", text: "Remaining balance due at completion", note: "Before crew leaves the job" },
-                { step: "5", text: "Issue final invoice + warranty docs", note: "Email same day" },
+                { step: "4", text: "50% of total must be collected before install date", note: "Follow up to collect remaining balance before crew rolls" },
+                { step: "5", text: "Remaining balance due at completion", note: "Before crew leaves the job" },
+                { step: "6", text: "Issue final invoice + warranty docs", note: "Email same day" },
               ].map((s, i) => (
                 <div key={i} className="flex items-start gap-3 rounded-xl p-3" style={{ background: SURFACE2 }}>
                   <div className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0"
@@ -1131,8 +1132,8 @@ export const CashVsFinancingSlide = () => {
               <h3 className="text-lg font-bold text-white mb-3" style={{ color: ORANGE }}>💬 Script</h3>
               <div className="space-y-2">
                 {[
-                  "\"For cash or check, we just need $1,000 or 10% — whichever is greater — to lock in your install date. The rest is due when the job's done and you're 100% happy.\"",
-                  "\"A lot of homeowners prefer this because it's straightforward — no interest, no monthly payments, just a clean deal.\"",
+                  "\"For cash or check, we just need $1,000 or 10% — whichever is greater — to lock in your install date. Then we'll need 50% of the total collected before the install, and the remaining balance when the job's done.\"",
+                  "\"Most homeowners prefer this because it's straightforward — no interest, no monthly payments, just a clean deal.\"",
                   "\"I'll write you a receipt right now and we'll get you on the schedule.\"",
                 ].map((line, i) => (
                   <div key={i} className="flex items-start gap-2 rounded-lg p-2.5" style={{ background: SURFACE2 }}>
@@ -1159,7 +1160,8 @@ export const CashVsFinancingSlide = () => {
                 { step: "3", text: "Review approval & terms with customer", note: "Show monthly payment, term, APR" },
                 { step: "4", text: "Customer e-signs financing agreement", note: "Digital signature on the spot" },
                 { step: "5", text: "Collect deposit — $1,000 or 10%, whichever is greater", note: "Receipt required — secures the install date" },
-                { step: "6", text: "Schedule install + lender pays after completion", note: "Typically 3-5 business days" },
+                { step: "6", text: "50% of total must be collected before install date", note: "Follow up for remaining deposit balance before crew rolls" },
+                { step: "7", text: "Schedule install + lender pays remaining after completion", note: "Typically 3-5 business days" },
               ].map((s, i) => (
                 <div key={i} className="flex items-start gap-3 rounded-xl p-3" style={{ background: SURFACE2 }}>
                   <div className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0"
@@ -1181,7 +1183,7 @@ export const CashVsFinancingSlide = () => {
                   { point: "Dealer fee applies", detail: "Factor into pricing — typically 8-15% depending on promo" },
                   { point: "0% promo options available", detail: "12-18 months same-as-cash on qualifying purchases" },
                   { point: "Extended terms (60-144 mo)", detail: "Lower monthly = easier close, but higher total cost" },
-                  { point: "Deposit: $1,000 or 10%", detail: "Whichever is greater — same as cash/check deals" },
+                  { point: "Deposit + 50% before install", detail: "$1,000 or 10% at signing, then 50% total collected before install day" },
                   { point: "Approval not guaranteed", detail: "Have a Plan B ready — co-signer, different lender, or reduced scope" },
                 ].map((p, i) => (
                   <div key={i} className="flex items-start gap-2 rounded-lg p-3" style={{ background: SURFACE2 }}>
